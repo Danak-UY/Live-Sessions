@@ -15,4 +15,5 @@
   align-self: flex-end;
   background-color: var(--cl-primary);
   color: var(--cl-white);
+  margin-left: auto;
 }

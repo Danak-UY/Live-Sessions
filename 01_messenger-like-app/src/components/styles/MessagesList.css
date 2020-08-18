@@ -1,4 +1,16 @@
-.messages-list {
-  display: flex;
-  flex-direction: column;
+.app__messages {
+  /* display: flex;
+  flex-direction: column; */
+  flex-grow: 1;
+  overflow-y: scroll;
+  overscroll-behavior-y: contain;
+}
+
+.app__messages::-webkit-scrollbar,
+.app__messages::-moz-scrollbar {
+  display: none;
+}
+
+.app__messages > div:last-child {
+  scroll-snap-align: end;
 }

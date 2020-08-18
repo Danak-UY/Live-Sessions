@@ -10,18 +10,19 @@ import UsernameDialog from "./components/UsernameDialog";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([]);
-  const [username, setUsername] = useState("Robert");
+  const [username, setUsername] = useState("Tina");
 
   const sendMessage = (ev) => {
     ev.preventDefault();
-    let message = {
-      username: username,
-      text: inputValue,
-      timestamp: firebase.firestore.Timestamp.now().toMillis(),
-    };
-    db.collection("messages").add(message);
-    setMessages([...messages, message]);
-    setInputValue("");
+    if (inputValue) {
+      let message = {
+        username: username,
+        text: inputValue,
+        timestamp: firebase.firestore.Timestamp.now().toMillis(),
+      };
+      db.collection("messages").add(message);
+      setInputValue("");
+    }
   };
 
   const updateInput = (value) => {
@@ -35,7 +36,7 @@ function App() {
   useEffect(() => {
     // Retrive messages from Firestore
     db.collection("messages")
-      .orderBy("timestamp", "desc")
+      .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
         setMessages(
           snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
@@ -44,20 +45,21 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <main className="app">
       {username === "" && (
         <UsernameDialog handleSubmit={updateUsername} username={username} />
       )}
-      <h1>Hi!</h1>
+      <div className="app__content">
+        <h1>Header</h1>
 
+        <MessagesList messagesArray={messages} username={username} />
+      </div>
       <FormMessage
         inputValue={inputValue}
         handleChange={updateInput}
         handleSubmit={sendMessage}
       />
-
-      <MessagesList messagesArray={messages} username={username} />
-    </div>
+    </main>
   );
 }
 

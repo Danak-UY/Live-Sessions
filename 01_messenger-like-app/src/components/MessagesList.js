@@ -6,7 +6,7 @@ import "./styles/MessagesList.css";
 
 function MessagesList({ messagesArray, username }) {
   return (
-    <FlipMove className="messages-list">
+    <FlipMove className="app__messages" typeName="section">
       {messagesArray.map(({ data, id }) => (
         <Message key={id} {...data} usernameLogin={username} />
       ))}
