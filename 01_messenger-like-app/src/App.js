@@ -1,28 +1,15 @@
 import React, { useState, useEffect } from "react";
+import db from "./firebase";
+import firebase from "firebase";
 import "./App.css";
 
 import FormMessage from "./components/FormMessage";
 import MessagesList from "./components/MessagesList";
 import UsernameDialog from "./components/UsernameDialog";
 
-const fakeMessages = [
-  {
-    username: "Tina",
-    text: "Hi!",
-  },
-  {
-    username: "Robert",
-    text: "What's app?",
-  },
-  {
-    username: "Tina",
-    text: "Nothing new",
-  },
-];
-
 function App() {
   const [inputValue, setInputValue] = useState("");
-  const [messages, setMessages] = useState(fakeMessages);
+  const [messages, setMessages] = useState([]);
   const [username, setUsername] = useState("Robert");
 
   const sendMessage = (ev) => {
@@ -30,7 +17,9 @@ function App() {
     let message = {
       username: username,
       text: inputValue,
+      timestamp: firebase.firestore.Timestamp.now().toMillis(),
     };
+    db.collection("messages").add(message);
     setMessages([...messages, message]);
     setInputValue("");
   };
@@ -43,9 +32,16 @@ function App() {
     setUsername(value);
   };
 
-  useEffect(() => {}, []);
-
-  console.log(username);
+  useEffect(() => {
+    // Retrive messages from Firestore
+    db.collection("messages")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setMessages(
+          snapshot.docs.map((doc) => ({ id: doc.id, data: doc.data() }))
+        );
+      });
+  }, []);
 
   return (
     <div className="App">

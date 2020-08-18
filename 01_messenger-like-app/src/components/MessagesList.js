@@ -1,15 +1,16 @@
 import React from "react";
+import FlipMove from "react-flip-move";
 import Message from "./Message";
 
 import "./styles/MessagesList.css";
 
 function MessagesList({ messagesArray, username }) {
   return (
-    <section className="messages-list">
-      {messagesArray.map((message, index) => (
-        <Message key={index} {...message} usernameLogin={username} />
+    <FlipMove className="messages-list">
+      {messagesArray.map(({ data, id }) => (
+        <Message key={id} {...data} usernameLogin={username} />
       ))}
-    </section>
+    </FlipMove>
   );
 }
 
