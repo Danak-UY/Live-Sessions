@@ -5,7 +5,7 @@ function MessagesList({ messagesArray }) {
   return (
     <section>
       {messagesArray.map((message, index) => (
-        <Message key={index} text={message} />
+        <Message key={index} text={message.text} username={message.username} />
       ))}
     </section>
   );

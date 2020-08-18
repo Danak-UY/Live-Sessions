@@ -1,7 +1,12 @@
 import React from "react";
 
-function Message({ text }) {
-  return <p>{text}</p>;
+function Message({ text, username }) {
+  return (
+    <div>
+      <p>{username}</p>
+      <h3>{text}</h3>
+    </div>
+  );
 }
 
 export default Message;

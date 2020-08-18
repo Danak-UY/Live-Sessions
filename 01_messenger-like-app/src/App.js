@@ -8,11 +8,15 @@ import UsernameDialog from "./components/UsernameDialog";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([]);
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Martin");
 
   const sendMessage = (ev) => {
     ev.preventDefault();
-    setMessages([...messages, inputValue]);
+    let message = {
+      username: username,
+      text: inputValue,
+    };
+    setMessages([...messages, message]);
     setInputValue("");
   };
 
