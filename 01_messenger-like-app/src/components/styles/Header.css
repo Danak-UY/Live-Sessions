@@ -1,0 +1,22 @@
+header {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+header h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+header h1 span {
+  margin-bottom: 1rem;
+  margin-right: 0.6rem;
+}
+
+header img {
+  width: 6rem;
+}

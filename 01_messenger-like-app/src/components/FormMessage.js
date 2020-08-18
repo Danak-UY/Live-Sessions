@@ -9,7 +9,7 @@ import {
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 import "./styles/FormMessage.css";
 
-function FormMessage({ inputValue, handleChange, handleSubmit }) {
+function FormMessage({ inputValue, handleChange, handleSubmit, username }) {
   const updateInput = (ev) => {
     handleChange(ev.target.value);
   };
@@ -18,6 +18,9 @@ function FormMessage({ inputValue, handleChange, handleSubmit }) {
   };
   return (
     <form className="app__form">
+      <p>
+        Your are writing as <strong>{username}</strong>
+      </p>
       <FormControl className="app__formControl">
         <Input
           placeholder="Enter your message"

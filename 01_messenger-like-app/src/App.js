@@ -3,6 +3,7 @@ import db from "./firebase";
 import firebase from "firebase";
 import "./App.css";
 
+import Header from "./components/Header";
 import FormMessage from "./components/FormMessage";
 import MessagesList from "./components/MessagesList";
 import UsernameDialog from "./components/UsernameDialog";
@@ -10,7 +11,9 @@ import UsernameDialog from "./components/UsernameDialog";
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [messages, setMessages] = useState([]);
-  const [username, setUsername] = useState("Tina");
+  const [username, setUsername] = useState(
+    localStorage.getItem("username") || ""
+  );
 
   const sendMessage = (ev) => {
     ev.preventDefault();
@@ -31,6 +34,7 @@ function App() {
 
   const updateUsername = (value) => {
     setUsername(value);
+    localStorage.setItem("username", value);
   };
 
   useEffect(() => {
@@ -50,7 +54,7 @@ function App() {
         <UsernameDialog handleSubmit={updateUsername} username={username} />
       )}
       <div className="app__content">
-        <h1>Header</h1>
+        <Header username={username} />
 
         <MessagesList messagesArray={messages} username={username} />
       </div>
@@ -58,6 +62,7 @@ function App() {
         inputValue={inputValue}
         handleChange={updateInput}
         handleSubmit={sendMessage}
+        username={username}
       />
     </main>
   );
