@@ -5,10 +5,25 @@ import FormMessage from "./components/FormMessage";
 import MessagesList from "./components/MessagesList";
 import UsernameDialog from "./components/UsernameDialog";
 
+const fakeMessages = [
+  {
+    username: "Tina",
+    text: "Hi!",
+  },
+  {
+    username: "Robert",
+    text: "What's app?",
+  },
+  {
+    username: "Tina",
+    text: "Nothing new",
+  },
+];
+
 function App() {
   const [inputValue, setInputValue] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [username, setUsername] = useState("Martin");
+  const [messages, setMessages] = useState(fakeMessages);
+  const [username, setUsername] = useState("Robert");
 
   const sendMessage = (ev) => {
     ev.preventDefault();
@@ -45,7 +60,7 @@ function App() {
         handleSubmit={sendMessage}
       />
 
-      <MessagesList messagesArray={messages} />
+      <MessagesList messagesArray={messages} username={username} />
     </div>
   );
 }

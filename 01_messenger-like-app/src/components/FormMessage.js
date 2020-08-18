@@ -11,7 +11,7 @@ function FormMessage({ inputValue, handleChange, handleSubmit }) {
   return (
     <form>
       <FormControl>
-        <InputLabel>Email address</InputLabel>
+        <InputLabel>Write your message</InputLabel>
         <Input type="text" value={inputValue} onChange={updateInput} />
         <Button
           disabled={!inputValue}

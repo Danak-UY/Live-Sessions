@@ -1,11 +1,13 @@
 import React from "react";
 import Message from "./Message";
 
-function MessagesList({ messagesArray }) {
+import "./styles/MessagesList.css";
+
+function MessagesList({ messagesArray, username }) {
   return (
-    <section>
+    <section className="messages-list">
       {messagesArray.map((message, index) => (
-        <Message key={index} text={message.text} username={message.username} />
+        <Message key={index} {...message} usernameLogin={username} />
       ))}
     </section>
   );

@@ -1,0 +1,18 @@
+.message {
+  padding: 0.5rem;
+  margin: 1rem;
+  width: fit-content;
+}
+
+.message.message__guest {
+  align-self: flex-start;
+  text-align: left;
+  background-color: var(--cl-gray);
+}
+
+.message.message__user {
+  text-align: right;
+  align-self: flex-end;
+  background-color: var(--cl-primary);
+  color: var(--cl-white);
+}
