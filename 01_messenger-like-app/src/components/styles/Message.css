@@ -33,9 +33,11 @@
 }
 
 .message__username {
-  margin-left: 0.5rem;
+  margin-left: 0.25rem;
   margin-top: 1rem;
   font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--cl-dark-gray);
 }
 
 .message__container {

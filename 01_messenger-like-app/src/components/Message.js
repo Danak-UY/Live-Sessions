@@ -73,7 +73,7 @@ const Message = forwardRef(
             isUser ? "message__container--user" : "message__container--guest"
           }`}
         >
-          {!isSameUser && !isUser && (
+          {((!isSameUser && !isUser) || (newDate && !isUser)) && (
             <p className="message__username">{username}</p>
           )}
           <Card
