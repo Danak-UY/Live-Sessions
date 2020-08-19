@@ -1,4 +1,7 @@
-export async function getCountyData(url, dispatch, countryCode = "") {
+import { useDispatch } from "react-redux";
+
+export async function getCountyData(url, countryCode = "") {
+  const dispatch = useDispatch();
   await fetch(url + "?yesterday=false")
     .then((response) => response.json())
     .then((data) => {

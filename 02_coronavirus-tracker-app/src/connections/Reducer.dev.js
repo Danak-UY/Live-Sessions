@@ -20,6 +20,20 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_COUNTRIES_DATA":
+      {
+        var countries = action.payload.map(function (item) {
+          return {
+            name: item.country,
+            value: item.countryInfo.iso3
+          };
+        });
+        return _objectSpread({}, state, {
+          countriesData: action.payload,
+          countriesList: countries
+        });
+      }
+
     case "SET_COUNTRY":
       {
         return _objectSpread({}, state, {
@@ -29,8 +43,11 @@ function reducer(state, action) {
 
     case "SET_COUNTRY_DATA":
       {
+        var data = action.payload.data;
+        var countryCode = action.payload.countryCode || "worldwide";
         return _objectSpread({}, state, {
-          countryData: action.payload
+          countryData: data,
+          selectedCountry: countryCode
         });
       }
 

@@ -14,6 +14,7 @@ import StatsTable from "./components/StatsTable";
 const initialState = {
   countriesList: [],
   countryData: [],
+  countriesData: [],
   selectedCountry: "worldwide",
 };
 

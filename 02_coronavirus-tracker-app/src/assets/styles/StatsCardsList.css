@@ -18,6 +18,10 @@
   align-items: flex-start;
 }
 
+.card-stats__numbers {
+  cursor: pointer;
+}
+
 .card-stats > img {
   margin-right: 0.5rem;
 }

@@ -15,21 +15,21 @@ function StatsCardsList() {
       {countryData.length !== 0 && (
         <>
           <StatsCard
-            title="Total Cases"
+            title="Today Cases"
             totalCases={countryData.cases}
             todayCases={countryData.todayCases}
             casesPerMillion={countryData.casesPerOneMillion}
             img="ic-emo-red"
           />
           <StatsCard
-            title="Total Recovered"
+            title="Today Recovered"
             totalCases={countryData.recovered}
             todayCases={countryData.todayRecovered}
             casesPerMillion={countryData.recoveredPerOneMillion}
             img="ic-emo-green"
           />
           <StatsCard
-            title="Total Deaths"
+            title="Today Deaths"
             totalCases={countryData.deaths}
             todayCases={countryData.todayDeaths}
             casesPerMillion={countryData.deathsPerOneMillion}

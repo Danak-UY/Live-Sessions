@@ -5,15 +5,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.getCountyData = getCountyData;
 
-function getCountyData(url, dispatch) {
+var _reactRedux = require("react-redux");
+
+function getCountyData(url) {
   var countryCode,
+      dispatch,
       _args = arguments;
   return regeneratorRuntime.async(function getCountyData$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          countryCode = _args.length > 2 && _args[2] !== undefined ? _args[2] : "";
-          _context.next = 3;
+          countryCode = _args.length > 1 && _args[1] !== undefined ? _args[1] : "";
+          dispatch = (0, _reactRedux.useDispatch)();
+          _context.next = 4;
           return regeneratorRuntime.awrap(fetch(url + "?yesterday=false").then(function (response) {
             return response.json();
           }).then(function (data) {
@@ -30,7 +34,7 @@ function getCountyData(url, dispatch) {
             });
           }));
 
-        case 3:
+        case 4:
         case "end":
           return _context.stop();
       }

@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Select, FormControl, MenuItem } from "@material-ui/core";
 
-import { getCountyData } from "./../connections/apiCalls";
-
 function StatsFilter({ title, img }) {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countriesList);
@@ -14,21 +12,25 @@ function StatsFilter({ title, img }) {
       await fetch("https://disease.sh/v3/covid-19/countries")
         .then((response) => response.json())
         .then((data) => {
-          const countries = data.map((item) => ({
-            name: item.country,
-            value: item.countryInfo.iso3,
-            flag: item.countryInfo.flag,
-          }));
-
           dispatch({
-            type: "SET_COUNTRIES_LIST",
-            payload: countries,
+            type: "SET_COUNTRIES_DATA",
+            payload: data,
           });
+
+          // const countries = data.map((item) => ({
+          //   name: item.country,
+          //   value: item.countryInfo.iso3,
+          //   flag: item.countryInfo.flag,
+          // }));
+          // dispatch({
+          //   type: "SET_COUNTRIES_LIST",
+          //   payload: countries,
+          // });
         });
     };
     getCountiesData();
     const url = "https://disease.sh/v3/covid-19/all";
-    getCountyData(url, dispatch);
+    getCountyData(url);
   }, []);
 
   function handleChange(ev) {
@@ -39,7 +41,24 @@ function StatsFilter({ title, img }) {
         ? "https://disease.sh/v3/covid-19/all"
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
-    getCountyData(url, countryCode, dispatch);
+    getCountyData(url, countryCode);
+  }
+
+  async function getCountyData(url, countryCode = "") {
+    await fetch(url + "?yesterday=false")
+      .then((response) => response.json())
+      .then((data) => {
+        // if (countryCode !== "") {
+        //   dispatch({
+        //     type: "SET_COUNTRY",
+        //     payload: countryCode,
+        //   });
+        // }
+        dispatch({
+          type: "SET_COUNTRY_DATA",
+          payload: { data, countryCode },
+        });
+      });
   }
 
   return (
