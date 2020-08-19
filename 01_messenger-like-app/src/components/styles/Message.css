@@ -42,6 +42,7 @@
 
 .message__container {
   width: fit-content;
+  max-width: 90%;
 }
 
 .message__container.message__container--user {
