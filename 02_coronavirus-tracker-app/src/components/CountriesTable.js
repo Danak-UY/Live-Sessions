@@ -7,7 +7,7 @@ function CountriesTable() {
   const countries = useSelector((state) => state.countriesData);
 
   return (
-    <article>
+    <article className="country__table">
       {countries.length !== 0 &&
         countries.map(({ country, cases, countryInfo }, index) => (
           <CountryRow

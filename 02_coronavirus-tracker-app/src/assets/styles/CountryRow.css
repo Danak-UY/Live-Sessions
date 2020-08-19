@@ -1,0 +1,47 @@
+.country__table {
+  overflow-y: auto;
+  max-height: 100%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+} /* Hide Scrollbar */
+
+.country__table::-webkit-scrollbar {
+  display: none;
+}
+
+.country__row {
+  padding: 0.75rem;
+  background-color: var(--cl-gray);
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  border-radius: 0.25rem;
+}
+
+.country__row__img {
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+
+.country__row__img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.country__row h4 {
+  font-weight: 500;
+  color: var(--cl-dark);
+  flex: 1;
+  text-overflow: ellipsis;
+}
+
+.country__row p {
+  font-weight: normal;
+  color: var(--cl-primary-desaturated);
+}

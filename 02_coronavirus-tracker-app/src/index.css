@@ -26,4 +26,5 @@ body {
   min-height: 100vh;
   color: var(--cl-dark);
   background-color: var(--cl-gray);
+  padding-bottom: 2rem;
 }

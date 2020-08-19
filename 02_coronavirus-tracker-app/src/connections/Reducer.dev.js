@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = reducer;
 
+var _fuctions = require("./../components/functions/fuctions");
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -13,13 +15,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function reducer(state, action) {
   switch (action.type) {
-    case "SET_COUNTRIES_LIST":
-      {
-        return _objectSpread({}, state, {
-          countriesList: action.payload
-        });
-      }
-
     case "SET_COUNTRIES_DATA":
       {
         var countries = action.payload.map(function (item) {
@@ -29,15 +24,8 @@ function reducer(state, action) {
           };
         });
         return _objectSpread({}, state, {
-          countriesData: action.payload,
+          countriesData: (0, _fuctions.sortDataByField)(action.payload, "cases"),
           countriesList: countries
-        });
-      }
-
-    case "SET_COUNTRY":
-      {
-        return _objectSpread({}, state, {
-          selectedCountry: action.payload
         });
       }
 

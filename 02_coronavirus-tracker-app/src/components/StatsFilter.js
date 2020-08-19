@@ -16,16 +16,6 @@ function StatsFilter({ title, img }) {
             type: "SET_COUNTRIES_DATA",
             payload: data,
           });
-
-          // const countries = data.map((item) => ({
-          //   name: item.country,
-          //   value: item.countryInfo.iso3,
-          //   flag: item.countryInfo.flag,
-          // }));
-          // dispatch({
-          //   type: "SET_COUNTRIES_LIST",
-          //   payload: countries,
-          // });
         });
     };
     getCountiesData();
@@ -48,12 +38,6 @@ function StatsFilter({ title, img }) {
     await fetch(url + "?yesterday=false")
       .then((response) => response.json())
       .then((data) => {
-        // if (countryCode !== "") {
-        //   dispatch({
-        //     type: "SET_COUNTRY",
-        //     payload: countryCode,
-        //   });
-        // }
         dispatch({
           type: "SET_COUNTRY_DATA",
           payload: { data, countryCode },
@@ -64,6 +48,7 @@ function StatsFilter({ title, img }) {
   return (
     <article className="card-stats">
       <img
+        loading="eager"
         src={`${require(`./../assets/images/${img}.svg`)}`}
         alt="Globe Icon"
       />

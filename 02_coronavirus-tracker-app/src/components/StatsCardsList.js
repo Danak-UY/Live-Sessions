@@ -8,7 +8,6 @@ import "./../assets/styles/StatsCardsList.css";
 
 function StatsCardsList() {
   const countryData = useSelector((state) => state.countryData);
-  console.log(countryData);
   return (
     <section className="cards-container">
       <StatsFilter title="Stats Overview" img="ic-globe" />
