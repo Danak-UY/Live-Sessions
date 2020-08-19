@@ -18,10 +18,17 @@ const DateMonth = [
   "Dec",
 ];
 
+function formatNumber(num) {
+  if (num < 10) return "0" + num;
+  return num;
+}
+
 function formatDate(timestamp) {
   const dateNow = new Date();
   const dateTime = new Date(timestamp);
-  let dateString = `${dateTime.getHours()}:${dateTime.getMinutes()}`;
+  let dateString = `${formatNumber(dateTime.getHours())}:${formatNumber(
+    dateTime.getMinutes()
+  )}`;
   if (
     dateTime.getDate() !== dateNow.getDate() ||
     dateTime.getMonth() !== dateNow.getMonth() ||
@@ -29,7 +36,7 @@ function formatDate(timestamp) {
   ) {
     dateString = `${
       DateMonth[dateTime.getMonth()]
-    } ${dateTime.getDate()}, ${dateTime.getYear()} - dateString`;
+    } ${dateTime.getDate()}, ${dateTime.getFullYear()} - ${dateString}`;
   }
   return dateString;
 }

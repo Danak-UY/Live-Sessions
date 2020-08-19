@@ -1,10 +1,15 @@
 .app__messages {
-  /* display: flex;
-  flex-direction: column; */
   flex-grow: 1;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
   scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide Scrollbar */
+.app__messages::-webkit-scrollbar {
+  display: none;
 }
 
 .app__messages article:last-of-type {
@@ -20,15 +25,12 @@
   scroll-snap-align: end;
 }
 
+/* Scroll to last */
 #scroller * {
-  /* don't allow the children of the scrollable element to be selected as an anchor node */
   overflow-anchor: none;
 }
 
 #anchor {
-  /* allow the final child to be selected as an anchor node */
   overflow-anchor: auto;
-
-  /* anchor nodes are required to have non-zero area */
   height: 1px;
 }
