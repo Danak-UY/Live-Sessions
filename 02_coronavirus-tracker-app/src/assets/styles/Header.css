@@ -1,6 +1,9 @@
 header {
   background-color: var(--cl-primary);
-  padding: 5rem 2rem 8rem;
+  background-image: url("../images/bg-art.svg");
+  background-position: center center;
+  background-size: cover;
+  padding: 5rem 0 8rem;
   color: var(--cl-white);
 }
 

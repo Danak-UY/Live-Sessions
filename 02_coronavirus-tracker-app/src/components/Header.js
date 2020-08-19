@@ -28,7 +28,11 @@ function Header() {
             variant="contained"
             color="secondary"
             className={classes.button}
-            endIcon={<ArrowForwardIosRoundedIcon />}
+            endIcon={
+              <ArrowForwardIosRoundedIcon
+                style={{ fontSize: ".8rem", marginLeft: ".5rem" }}
+              />
+            }
           >
             How to protect
           </Button>
