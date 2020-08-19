@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import FlipMove from "react-flip-move";
 import Message from "./Message";
 
@@ -6,6 +6,7 @@ import "./styles/MessagesList.css";
 
 function MessagesList({ messagesArray, username }) {
   let lastUser = "";
+  let lastDate = 0;
   const [firstLoad, setFirstLoad] = useState(true);
 
   useEffect(() => {
@@ -28,15 +29,18 @@ function MessagesList({ messagesArray, username }) {
   return (
     <FlipMove className="app__messages" id="scroller" typeName="section">
       {messagesArray.map(({ data, id }) => {
+        const currentDate = new Date(data.timestamp).getDate();
         const objectMessage = (
           <Message
             key={id}
             {...data}
             usernameLogin={username}
             lastUser={lastUser}
+            newDate={lastDate !== "" && currentDate !== lastDate}
           />
         );
         lastUser = data.username;
+        lastDate = currentDate;
         return objectMessage;
       })}
       <div id="anchor"></div>

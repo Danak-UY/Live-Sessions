@@ -1,19 +1,36 @@
 import React from "react";
-import { FormControl, Input, IconButton } from "@material-ui/core";
+import { FormControl, Input, IconButton, Tooltip } from "@material-ui/core";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 import "./styles/FormMessage.css";
 
-function FormMessage({ inputValue, handleChange, handleSubmit, username }) {
+function FormMessage({
+  inputValue,
+  handleChange,
+  handleChangeUsername,
+  handleSubmit,
+  username,
+}) {
   const updateInput = (ev) => {
     handleChange(ev.target.value);
   };
   const sendMessage = (ev) => {
     handleSubmit(ev);
   };
+  const changeUsername = () => {
+    handleChangeUsername("");
+  };
   return (
     <form className="app__form">
       <p className="form__title">
-        Your are writing as <strong>{username}</strong>
+        Your are writing as{" "}
+        <Tooltip
+          title="Change username"
+          arrow
+          placement="top"
+          onClick={changeUsername}
+        >
+          <strong>{username}</strong>
+        </Tooltip>
       </p>
       <FormControl className="app__formControl">
         <Input

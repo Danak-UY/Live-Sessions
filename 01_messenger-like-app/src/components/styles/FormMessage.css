@@ -29,3 +29,7 @@
 .form__title {
   font-size: 0.9rem;
 }
+
+.form__title strong {
+  cursor: pointer;
+}

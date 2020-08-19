@@ -44,7 +44,6 @@
 
 .message__container.message__container--user {
   text-align: right;
-  align-self: flex-end;
   margin-left: auto;
 }
 
@@ -66,4 +65,15 @@
 
 .message__container.message__container--user .message__timestamp {
   margin-right: 0.5rem;
+}
+
+.app__messages .app__chip-date {
+  text-align: center;
+  display: flex;
+  width: fit-content;
+  margin: 1rem auto;
+  background-color: var(--cl-secondary);
+  font-size: 0.9rem;
+  color: var(--cl-dark-gray);
+  text-transform: uppercase;
 }

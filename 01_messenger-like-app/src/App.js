@@ -63,6 +63,7 @@ function App() {
         handleChange={updateInput}
         handleSubmit={sendMessage}
         username={username}
+        handleChangeUsername={updateUsername}
       />
     </main>
   );
