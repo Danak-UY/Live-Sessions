@@ -1,0 +1,17 @@
+.stats-percentage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.stats-percentage img {
+  margin-right: 0.25rem;
+}
+
+.stats-up {
+  color: var(--cl-red);
+}
+
+.stats-down {
+  color: var(--cl-green);
+}

@@ -2,7 +2,7 @@
   background-color: var(--cl-white);
   padding: 2rem;
   display: grid;
-  justify-items: center;
+  justify-items: flex-start;
   align-items: center;
   grid-template-columns: 1fr 1fr;
   grid-row-gap: 1rem;
@@ -10,11 +10,16 @@
   border-radius: 0.5rem;
   margin-top: -4rem;
   color: var(--cl-primary);
+  margin-bottom: 2rem;
 }
 
 .card-stats {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.card-stats > img {
+  margin: 0 0.5rem;
 }
 
 .card-stats__content h3 {
@@ -43,5 +48,6 @@
 @media screen and (min-width: 768px) {
   .cards-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
   }
 }

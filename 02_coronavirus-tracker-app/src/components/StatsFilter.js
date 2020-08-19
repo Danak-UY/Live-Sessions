@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Select, FormControl, MenuItem, InputLabel } from "@material-ui/core";
 
-function StatsFilter({ title }) {
+function StatsFilter({ title, img }) {
   const dispatch = useDispatch();
   const countriesList = useSelector((state) => state.countriesList);
   const selectedCountry = useSelector((state) => state.selectedCountry);
@@ -35,7 +35,10 @@ function StatsFilter({ title }) {
 
   return (
     <article className="card-stats">
-      <img src="" alt="Icon" />
+      <img
+        src={`${require(`./../assets/images/${img}.svg`)}`}
+        alt="Globe Icon"
+      />
       <div className="card-stats__content">
         <h3>{title}</h3>
 

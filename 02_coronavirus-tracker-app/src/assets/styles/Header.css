@@ -3,7 +3,7 @@ header {
   background-image: url("../images/bg-art.svg");
   background-position: center center;
   background-size: cover;
-  padding: 5rem 0 8rem;
+  padding: 5rem 0rem 8rem;
   color: var(--cl-white);
 }
 
@@ -22,4 +22,10 @@ header {
   margin-bottom: 2rem;
   line-height: 1.4;
   opacity: 0.8;
+}
+
+@media screen and (min-width: 576px) {
+  .header__content {
+    padding: 0 2rem;
+  }
 }

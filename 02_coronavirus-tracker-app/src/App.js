@@ -26,7 +26,7 @@ function App() {
         <Wrapper>
           <StatsCardsList />
           <section className="app__content">
-            <StatsMap />
+            <StatsMap title="Covid-19 Affected Areas" />
             <StatsTable />
           </section>
         </Wrapper>

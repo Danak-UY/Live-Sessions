@@ -1,13 +1,21 @@
 import React from "react";
 
-function StatsCard({ title, img }) {
+import "./../assets/styles/StatsCard.css";
+
+function StatsCard({ title, img, trend, number, percentage }) {
   return (
     <article className="card-stats">
-      <img src="" alt="Icon" />
+      <img src={`${require(`./../assets/images/${img}.svg`)}`} alt="Icon" />
       <div className="card-stats__content">
         <h3>{title}</h3>
-        <h2>1,245,347</h2>
-        <p>95%</p>
+        <h2>{number}</h2>
+        <p className={`stats-${trend} stats-percentage`}>
+          <img
+            src={`${require(`./../assets/images/ic-trending-${trend}.svg`)}`}
+            alt="Trend Icon"
+          />
+          {percentage}%
+        </p>
       </div>
     </article>
   );
