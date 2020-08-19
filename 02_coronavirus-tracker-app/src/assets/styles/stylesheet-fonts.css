@@ -1,0 +1,99 @@
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-SemiboldItalic.woff2") format("woff2"),
+    url("../fonts/Graphik-SemiboldItalic.woff") format("woff"),
+    url("../fonts/Graphik-SemiboldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-MediumItalic.woff2") format("woff2"),
+    url("../fonts/Graphik-MediumItalic.woff") format("woff"),
+    url("../fonts/Graphik-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Regular.woff2") format("woff2"),
+    url("../fonts/Graphik-Regular.woff") format("woff"),
+    url("../fonts/Graphik-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Light.woff2") format("woff2"),
+    url("../fonts/Graphik-Light.woff") format("woff"),
+    url("../fonts/Graphik-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-LightItalic.woff2") format("woff2"),
+    url("../fonts/Graphik-LightItalic.woff") format("woff"),
+    url("../fonts/Graphik-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Semibold.woff2") format("woff2"),
+    url("../fonts/Graphik-Semibold.woff") format("woff"),
+    url("../fonts/Graphik-Semibold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Medium.woff2") format("woff2"),
+    url("../fonts/Graphik-Medium.woff") format("woff"),
+    url("../fonts/Graphik-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-RegularItalic.woff2") format("woff2"),
+    url("../fonts/Graphik-RegularItalic.woff") format("woff"),
+    url("../fonts/Graphik-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-BoldItalic.woff2") format("woff2"),
+    url("../fonts/Graphik-BoldItalic.woff") format("woff"),
+    url("../fonts/Graphik-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik-Bold.woff2") format("woff2"),
+    url("../fonts/Graphik-Bold.woff") format("woff"),
+    url("../fonts/Graphik-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}

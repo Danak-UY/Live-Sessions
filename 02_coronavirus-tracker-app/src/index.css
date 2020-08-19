@@ -1,0 +1,29 @@
+:root {
+  --cl-primary: #262c7c;
+  --cl-primary-desaturated: #6468a1;
+  --cl-secondary: #be0152;
+  --cl-gray: #f2f3f7;
+  --cl-dark: #2d2e39;
+  --cl-white: #ffffff;
+  --cl-red: #ff3e29;
+  --cl-green: #00db75;
+}
+
+@import url("./assets/styles/stylesheet-fonts.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Graphik", sans-serif;
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--cl-dark);
+  background-color: var(--cl-gray);
+}
