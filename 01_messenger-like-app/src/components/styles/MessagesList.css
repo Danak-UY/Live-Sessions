@@ -4,6 +4,11 @@
   flex-grow: 1;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
+  scroll-behavior: smooth;
+}
+
+.app__messages article:last-of-type {
+  margin-bottom: 1rem;
 }
 
 .app__messages::-webkit-scrollbar,
@@ -13,4 +18,17 @@
 
 .app__messages > div:last-child {
   scroll-snap-align: end;
+}
+
+#scroller * {
+  /* don't allow the children of the scrollable element to be selected as an anchor node */
+  overflow-anchor: none;
+}
+
+#anchor {
+  /* allow the final child to be selected as an anchor node */
+  overflow-anchor: auto;
+
+  /* anchor nodes are required to have non-zero area */
+  height: 1px;
 }

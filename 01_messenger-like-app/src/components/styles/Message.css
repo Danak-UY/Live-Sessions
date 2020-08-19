@@ -1,7 +1,7 @@
 .message.MuiPaper-rounded {
   margin: 0.5rem 0;
-  box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.12),
-    0px 2px 2px 0px rgba(0, 0, 0, 0.04), 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 3px 2px -1px rgba(0, 0, 0, 0.08),
+    0px 1px 2px 0px rgba(0, 0, 0, 0.02), 0px 1px 4px 0px rgba(0, 0, 0, 0.01);
 }
 
 .message .MuiCardContent-root {
@@ -12,6 +12,9 @@
   padding: 0.5rem;
   margin: 1rem;
   width: fit-content;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
 }
 
 .message.message__guest {
@@ -23,14 +26,44 @@
 }
 
 .message.message__user {
-  text-align: right;
-  align-self: flex-end;
   background-color: var(--cl-primary);
   color: var(--cl-white);
   margin-left: auto;
-  border-radius: 10rem 10rem 2rem 10rem;
+  border-radius: 10rem 2rem 2rem 10rem;
 }
 
-.message__username + .message.message__guest {
-  border-radius: 10rem 10rem 10rem 2rem;
+.message__username {
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.message__container {
+  width: fit-content;
+}
+
+.message__container.message__container--user {
+  text-align: right;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message__timestamp {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+  margin-bottom: -1.5rem;
+  transform: translateY(-2rem);
+  opacity: 0;
+  transition: 300ms ease;
+}
+
+.message__timestamp.active {
+  margin-bottom: 0.75rem;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.message__container.message__container--user .message__timestamp {
+  margin-right: 0.5rem;
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import FlipMove from "react-flip-move";
 import Message from "./Message";
 
@@ -6,8 +6,27 @@ import "./styles/MessagesList.css";
 
 function MessagesList({ messagesArray, username }) {
   let lastUser = "";
+  const [firstLoad, setFirstLoad] = useState(true);
+
+  useEffect(() => {
+    if (
+      (messagesArray.length !== 0 &&
+        messagesArray[messagesArray.length - 1].data.username === username) ||
+      (messagesArray.length !== 0 && firstLoad)
+    ) {
+      setFirstLoad(false);
+      const divMessages = document.querySelector(".app__messages");
+      const lastMessage = document.querySelector(
+        ".app__messages article:last-of-type"
+      );
+      if (lastMessage)
+        divMessages.scrollTop =
+          lastMessage.offsetTop + lastMessage.offsetHeight;
+    }
+  }, [messagesArray]);
+
   return (
-    <FlipMove className="app__messages" typeName="section">
+    <FlipMove className="app__messages" id="scroller" typeName="section">
       {messagesArray.map(({ data, id }) => {
         const objectMessage = (
           <Message
@@ -20,6 +39,7 @@ function MessagesList({ messagesArray, username }) {
         lastUser = data.username;
         return objectMessage;
       })}
+      <div id="anchor"></div>
     </FlipMove>
   );
 }

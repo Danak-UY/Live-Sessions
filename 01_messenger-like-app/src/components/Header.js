@@ -12,6 +12,9 @@ function Header() {
           loading="eager"
         />
       </h1>
+      <h2 className="header_subtitle">
+        Share the link to chat with other people.
+      </h2>
     </header>
   );
 }

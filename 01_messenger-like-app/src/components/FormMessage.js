@@ -12,7 +12,7 @@ function FormMessage({ inputValue, handleChange, handleSubmit, username }) {
   };
   return (
     <form className="app__form">
-      <p>
+      <p className="form__title">
         Your are writing as <strong>{username}</strong>
       </p>
       <FormControl className="app__formControl">
