@@ -1,4 +1,5 @@
 .app__messages {
+  padding: 0 2rem;
   flex-grow: 1;
   overflow-y: scroll;
   overscroll-behavior-y: contain;
