@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Select, FormControl, MenuItem, InputLabel } from "@material-ui/core";
+import { Select, FormControl, MenuItem } from "@material-ui/core";
+
+import { getCountyData } from "./../connections/apiCalls";
 
 function StatsFilter({ title, img }) {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ function StatsFilter({ title, img }) {
           const countries = data.map((item) => ({
             name: item.country,
             value: item.countryInfo.iso3,
+            flag: item.countryInfo.flag,
           }));
 
           dispatch({
@@ -24,13 +27,19 @@ function StatsFilter({ title, img }) {
         });
     };
     getCountiesData();
+    const url = "https://disease.sh/v3/covid-19/all";
+    getCountyData(url, dispatch);
   }, []);
 
   function handleChange(ev) {
-    dispatch({
-      type: "SET_COUNTRY",
-      payload: ev.target.value,
-    });
+    const countryCode = ev.target.value;
+
+    const url =
+      countryCode === "worldwide"
+        ? "https://disease.sh/v3/covid-19/all"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+
+    getCountyData(url, countryCode, dispatch);
   }
 
   return (
@@ -42,16 +51,9 @@ function StatsFilter({ title, img }) {
       <div className="card-stats__content">
         <h3>{title}</h3>
 
-        <FormControl variant="outlined">
-          <InputLabel id="demo-simple-select-outlined-label">Search</InputLabel>
-          <Select
-            onChange={handleChange}
-            label="Search"
-            value={selectedCountry}
-          >
-            <MenuItem value="worldwide">
-              <em>Worldwide</em>
-            </MenuItem>
+        <FormControl>
+          <Select onChange={handleChange} value={selectedCountry}>
+            <MenuItem value="worldwide">Global</MenuItem>
             {countriesList.map((country, index) => (
               <MenuItem value={country.value} key={index}>
                 {country.name}

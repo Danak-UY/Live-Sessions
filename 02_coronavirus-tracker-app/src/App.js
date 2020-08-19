@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import reducer from "./connections/reducer";
@@ -13,6 +13,7 @@ import StatsTable from "./components/StatsTable";
 
 const initialState = {
   countriesList: [],
+  countryData: [],
   selectedCountry: "worldwide",
 };
 

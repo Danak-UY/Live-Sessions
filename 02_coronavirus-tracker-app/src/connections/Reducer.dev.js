@@ -27,6 +27,13 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_COUNTRY_DATA":
+      {
+        return _objectSpread({}, state, {
+          countryData: action.payload
+        });
+      }
+
     default:
       {
         return _objectSpread({}, state);

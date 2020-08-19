@@ -6,6 +6,9 @@ export default function reducer(state, action) {
     case "SET_COUNTRY": {
       return { ...state, selectedCountry: action.payload };
     }
+    case "SET_COUNTRY_DATA": {
+      return { ...state, countryData: action.payload };
+    }
     default: {
       return { ...state };
     }

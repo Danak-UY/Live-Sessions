@@ -19,7 +19,7 @@
 }
 
 .card-stats > img {
-  margin: 0 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .card-stats__content h3 {
@@ -30,13 +30,18 @@
 
 .card-stats__content h2 {
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   line-height: 1.6;
 }
 
 .card-stats__content p {
-  font-weight: normal;
+  font-weight: 500;
   font-size: 0.8rem;
+}
+
+.card-stats__content p span {
+  margin-left: 0.25rem;
+  font-weight: normal;
 }
 
 @media screen and (min-width: 576px) {

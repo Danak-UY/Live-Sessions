@@ -1,20 +1,23 @@
 import React from "react";
+import { formatNumberWithComma } from "./functions/fuctions";
 
 import "./../assets/styles/StatsCard.css";
 
-function StatsCard({ title, img, trend, number, percentage }) {
+function StatsCard({ title, img, totalCases, todayCases, casesPerMillion }) {
+  const trending = (casesPerMillion / todayCases) * 100 < 1 ? "down" : "up";
   return (
     <article className="card-stats">
       <img src={`${require(`./../assets/images/${img}.svg`)}`} alt="Icon" />
       <div className="card-stats__content">
         <h3>{title}</h3>
-        <h2>{number}</h2>
-        <p className={`stats-${trend} stats-percentage`}>
+        <h2>{formatNumberWithComma(todayCases)}</h2>
+        <p className={`stats-${trending} stats-percentage`}>
           <img
-            src={`${require(`./../assets/images/ic-trending-${trend}.svg`)}`}
+            src={`${require(`./../assets/images/ic-trending-${trending}.svg`)}`}
             alt="Trend Icon"
           />
-          {percentage}%
+          {formatNumberWithComma(casesPerMillion.toFixed(0))}
+          <span>x1M</span>
         </p>
       </div>
     </article>

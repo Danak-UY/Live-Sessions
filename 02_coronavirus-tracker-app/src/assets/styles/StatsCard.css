@@ -1,11 +1,12 @@
 .stats-percentage {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .stats-percentage img {
   margin-right: 0.25rem;
+  margin-bottom: -0.25rem;
 }
 
 .stats-up {
