@@ -20,8 +20,8 @@ function UsernameDialog({ handleSubmit, username }) {
       <DialogTitle id="form-dialog-title">Set your username</DialogTitle>
       <DialogContent>
         <DialogContentText>
-          To subscribe to this website, please enter your email address here. We
-          will send updates occasionally.
+          Your username will be saved on this computer, you can reset it at any
+          time.
         </DialogContentText>
         <TextField
           autoFocus

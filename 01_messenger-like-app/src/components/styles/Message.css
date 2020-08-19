@@ -1,3 +1,13 @@
+.message.MuiPaper-rounded {
+  margin: 0.5rem 0;
+  box-shadow: 0px 4px 2px -1px rgba(0, 0, 0, 0.12),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.04), 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+}
+
+.message .MuiCardContent-root {
+  padding: 0.25rem 0.5rem !important;
+}
+
 .message {
   padding: 0.5rem;
   margin: 1rem;
@@ -8,6 +18,8 @@
   align-self: flex-start;
   text-align: left;
   background-color: var(--cl-gray);
+  color: var(--cl-dark);
+  border-radius: 2rem 10rem 10rem 2rem;
 }
 
 .message.message__user {
@@ -16,4 +28,9 @@
   background-color: var(--cl-primary);
   color: var(--cl-white);
   margin-left: auto;
+  border-radius: 10rem 10rem 2rem 10rem;
+}
+
+.message__username + .message.message__guest {
+  border-radius: 10rem 10rem 10rem 2rem;
 }

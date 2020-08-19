@@ -3,25 +3,32 @@ import { Card, CardContent, Typography } from "@material-ui/core";
 
 import "./styles/Message.css";
 
-const Message = forwardRef(({ text, username, usernameLogin }, ref) => {
-  const isUser = usernameLogin === username;
-  return (
-    <Card
-      ref={ref}
-      className={`message ${isUser ? "message__user" : "message__guest"}`}
-    >
-      <CardContent>
-        {!isUser && (
-          <Typography color="textSecondary" gutterBottom>
-            {username}
-          </Typography>
+const Message = forwardRef(
+  ({ text, username, usernameLogin, lastUser }, ref) => {
+    const isUser = usernameLogin === username;
+    const isSameUser = lastUser === username;
+
+    return (
+      <>
+        {!isSameUser && !isUser && (
+          <p className="message__username">{username}</p>
         )}
-        <Typography variant="h5" component="h2">
-          {text}
-        </Typography>
-      </CardContent>
-    </Card>
-  );
-});
+        <Card
+          ref={ref}
+          className={`message ${isUser ? "message__user" : "message__guest"}`}
+        >
+          <CardContent>
+            {isUser === "thi" && (
+              <Typography color="textSecondary" gutterBottom>
+                {username}
+              </Typography>
+            )}
+            <Typography component="p">{text}</Typography>
+          </CardContent>
+        </Card>
+      </>
+    );
+  }
+);
 
 export default Message;

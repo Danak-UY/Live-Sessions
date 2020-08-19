@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Button,
-  FormControl,
-  Input,
-  InputLabel,
-  IconButton,
-} from "@material-ui/core";
+import { FormControl, Input, IconButton } from "@material-ui/core";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 import "./styles/FormMessage.css";
 
