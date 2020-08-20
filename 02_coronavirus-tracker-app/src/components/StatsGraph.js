@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Line } from "react-chartjs-2";
 import { numeral } from "numeral";
 
+import { categoryColors } from "./../assets/styles/colors.js";
+
 const options = {
   legend: {
     display: false,
@@ -31,6 +33,9 @@ const options = {
           format: "MM/DD/YY",
           tooltipFormat: "ll",
         },
+        ticks: {
+          maxTicksLimit: 8,
+        },
       },
     ],
     yAxes: [
@@ -38,11 +43,13 @@ const options = {
         gridLines: {
           display: false,
         },
-        // ticks: {
-        //   callback: function (value, index, values) {
-        //     return numeral(value).format("0a");
-        //   },
-        // },
+        ticks: {
+          beginAtZero: true,
+          maxTicksLimit: 5,
+          // callback: function (value, index, values) {
+          //   return numeral(value).format("0a");
+          // },
+        },
       },
     ],
   },
@@ -101,6 +108,8 @@ function StatsGraph({ category = "cases" }) {
           data={{
             datasets: [
               {
+                borderColor: categoryColors[category].hex,
+                backgroundColor: categoryColors[category].halfOp,
                 data: chartDataOrder,
               },
             ],

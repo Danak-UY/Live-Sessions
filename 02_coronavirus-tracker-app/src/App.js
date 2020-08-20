@@ -4,6 +4,7 @@ import { createStore } from "redux";
 import reducer from "./connections/reducer";
 
 import "./App.css";
+import "leaflet/dist/leaflet.css";
 
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";

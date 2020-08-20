@@ -1,15 +1,18 @@
 import React from "react";
+
+import StatsMap from "./StatsMap";
 import StatsGraph from "./StatsGraph";
 
 import "./../assets/styles/StatsTabs.css";
 
-function StatsMap({ title }) {
+function StatsTabs({ title }) {
   return (
     <article className="app__content__tabs">
       <h2>{title}</h2>
-      <StatsGraph title="Worldwide stats" />
+      <StatsMap />
+      <StatsGraph category="deaths" />
     </article>
   );
 }
 
-export default StatsMap;
+export default StatsTabs;
