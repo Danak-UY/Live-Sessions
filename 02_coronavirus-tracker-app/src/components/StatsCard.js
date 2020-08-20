@@ -1,5 +1,5 @@
 import React from "react";
-import { formatNumberWithComma } from "./functions/fuctions";
+import numeral from "numeral";
 
 import "./../assets/styles/StatsCard.css";
 
@@ -14,13 +14,13 @@ function StatsCard({ title, img, totalCases, todayCases, casesPerMillion }) {
       />
       <div className="card-stats__content">
         <h3>{title}</h3>
-        <h2>{formatNumberWithComma(todayCases)}</h2>
+        <h2>{numeral(todayCases).format("0,0")}</h2>
         <p className={`stats-${trending} stats-percentage`}>
           <img
             src={`${require(`./../assets/images/ic-trending-${trending}.svg`)}`}
             alt="Trend Icon"
           />
-          {formatNumberWithComma(casesPerMillion.toFixed(0))}
+          {numeral(casesPerMillion.toFixed(0)).format("0,0")}
           <span>x1M</span>
         </p>
       </div>
