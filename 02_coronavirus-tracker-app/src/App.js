@@ -18,6 +18,7 @@ const initialState = {
   countriesData: [],
   graphData: [],
   selectedCountry: "worldwide",
+  casesType: "cases",
   historicalDays: "30",
   APIURL: "https://disease.sh/v3/covid-19",
 };

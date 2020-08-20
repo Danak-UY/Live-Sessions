@@ -24,6 +24,10 @@ export default function reducer(state, action) {
       return { ...state, graphData: action.payload };
     }
 
+    case "SET_CATEGORY_TYPE": {
+      return { ...state, casesType: action.payload };
+    }
+
     default: {
       return { ...state };
     }

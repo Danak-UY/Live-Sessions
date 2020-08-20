@@ -46,6 +46,13 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_CATEGORY_TYPE":
+      {
+        return _objectSpread({}, state, {
+          casesType: action.payload
+        });
+      }
+
     default:
       {
         return _objectSpread({}, state);

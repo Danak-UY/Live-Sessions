@@ -26,7 +26,38 @@ export function drawDataOnMap(country, index, categoryType = "cases") {
       }
     >
       <Popup>
-        <h1>pop</h1>
+        <div className="map-info-container">
+          <div
+            className="map-info-flag"
+            style={{ backgroundImage: `url(${country.countryInfo.flag})` }}
+          ></div>
+          <div className="map-info-name">{country.country}</div>
+          <div className="map-info-confirmed">
+            <img
+              loading="lazy"
+              src={`${require(`./../../assets/images/ic-emo-red.svg`)}`}
+              alt="Icon"
+            />
+            <strong>Cases:</strong> {numeral(country.cases).format("0,0")}
+          </div>
+          <div className="map-info-recovered">
+            <img
+              loading="lazy"
+              src={`${require(`./../../assets/images/ic-emo-green.svg`)}`}
+              alt="Icon"
+            />
+            <strong>Recovered:</strong>{" "}
+            {numeral(country.recovered).format("0,0")}
+          </div>
+          <div className="map-info-deaths">
+            <img
+              loading="lazy"
+              src={`${require(`./../../assets/images/ic-emo-gray.svg`)}`}
+              alt="Icon"
+            />
+            <strong>Deaths:</strong> {numeral(country.deaths).format("0,0")}
+          </div>
+        </div>
       </Popup>
     </Circle>
   );

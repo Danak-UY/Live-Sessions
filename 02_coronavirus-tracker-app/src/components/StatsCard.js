@@ -3,10 +3,17 @@ import numeral from "numeral";
 
 import "./../assets/styles/StatsCard.css";
 
-function StatsCard({ title, img, totalCases, todayCases, casesPerMillion }) {
+function StatsCard({
+  title,
+  img,
+  totalCases,
+  todayCases,
+  casesPerMillion,
+  handleClick,
+}) {
   const trending = (casesPerMillion / todayCases) * 100 < 1 ? "down" : "up";
   return (
-    <article className="card-stats card-stats__numbers">
+    <article className="card-stats card-stats__numbers" onClick={handleClick}>
       <img
         loading="eager"
         src={`${require(`./../assets/images/${img}.svg`)}`}

@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import StatsCard from "./StatsCard";
 import StatsFilter from "./StatsFilter";
@@ -7,7 +7,17 @@ import StatsFilter from "./StatsFilter";
 import "./../assets/styles/StatsCardsList.css";
 
 function StatsCardsList() {
+  const dispatch = useDispatch();
   const countryData = useSelector((state) => state.countryData);
+
+  function updateCategory(type) {
+    dispatch({
+      type: "SET_CATEGORY_TYPE",
+      payload: type,
+    });
+    console.log(type);
+  }
+
   return (
     <section className="cards-container">
       <StatsFilter title="Stats Overview" img="ic-globe" />
@@ -19,6 +29,7 @@ function StatsCardsList() {
             todayCases={countryData.todayCases}
             casesPerMillion={countryData.casesPerOneMillion}
             img="ic-emo-red"
+            handleClick={(e) => updateCategory("cases")}
           />
           <StatsCard
             title="Today Recovered"
@@ -26,6 +37,7 @@ function StatsCardsList() {
             todayCases={countryData.todayRecovered}
             casesPerMillion={countryData.recoveredPerOneMillion}
             img="ic-emo-green"
+            handleClick={(e) => updateCategory("recovered")}
           />
           <StatsCard
             title="Today Deaths"
@@ -33,6 +45,7 @@ function StatsCardsList() {
             todayCases={countryData.todayDeaths}
             casesPerMillion={countryData.deathsPerOneMillion}
             img="ic-emo-gray"
+            handleClick={(e) => updateCategory("deaths")}
           />
         </>
       )}

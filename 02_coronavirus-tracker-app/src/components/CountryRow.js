@@ -1,5 +1,6 @@
 import React from "react";
 import { formatNumberWithComma } from "./functions/fuctions";
+import numeral from "numeral";
 
 import "./../assets/styles/CountryRow.css";
 
@@ -10,7 +11,7 @@ function CountryRow({ country, number, flag }) {
         <img loading="lazy" src={flag} alt={`${country} flag`} />
       </div>
       <h4>{country}</h4>
-      <p>{formatNumberWithComma(number)}</p>
+      <p>{numeral(number).format("0,0")}</p>
     </div>
   );
 }
