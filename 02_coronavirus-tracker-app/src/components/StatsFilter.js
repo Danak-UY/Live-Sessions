@@ -4,12 +4,13 @@ import { Select, FormControl, MenuItem } from "@material-ui/core";
 
 function StatsFilter({ title, img }) {
   const dispatch = useDispatch();
+  const APIURL = useSelector((state) => state.APIURL);
   const countriesList = useSelector((state) => state.countriesList);
   const selectedCountry = useSelector((state) => state.selectedCountry);
 
   useEffect(() => {
     const getCountiesData = async () => {
-      await fetch("https://disease.sh/v3/covid-19/countries")
+      await fetch(`${APIURL}/countries`)
         .then((response) => response.json())
         .then((data) => {
           dispatch({
@@ -19,7 +20,7 @@ function StatsFilter({ title, img }) {
         });
     };
     getCountiesData();
-    const url = "https://disease.sh/v3/covid-19/all";
+    const url = `${APIURL}/all`;
     getCountyData(url);
   }, []);
 
@@ -28,8 +29,8 @@ function StatsFilter({ title, img }) {
 
     const url =
       countryCode === "worldwide"
-        ? "https://disease.sh/v3/covid-19/all"
-        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+        ? `${APIURL}/all`
+        : `${APIURL}/countries/${countryCode}`;
 
     getCountyData(url, countryCode);
   }

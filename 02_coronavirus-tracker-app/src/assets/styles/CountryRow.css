@@ -14,7 +14,6 @@
   background-color: var(--cl-gray);
   display: flex;
   align-items: center;
-  font-size: 0.8rem;
   margin: 0.5rem 0;
   border-radius: 0.25rem;
 }
@@ -39,9 +38,11 @@
   color: var(--cl-dark);
   flex: 1;
   text-overflow: ellipsis;
+  font-size: 0.8rem;
 }
 
 .country__row p {
   font-weight: normal;
   color: var(--cl-primary-desaturated);
+  font-size: 0.9rem;
 }

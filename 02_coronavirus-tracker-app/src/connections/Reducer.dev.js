@@ -39,6 +39,13 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_GRAPH_DATA":
+      {
+        return _objectSpread({}, state, {
+          graphData: action.payload
+        });
+      }
+
     default:
       {
         return _objectSpread({}, state);

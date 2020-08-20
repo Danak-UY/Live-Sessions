@@ -11,7 +11,7 @@ function StatsCardsList() {
   return (
     <section className="cards-container">
       <StatsFilter title="Stats Overview" img="ic-globe" />
-      {countryData.length !== 0 && (
+      {countryData?.length !== 0 && (
         <>
           <StatsCard
             title="Today Cases"

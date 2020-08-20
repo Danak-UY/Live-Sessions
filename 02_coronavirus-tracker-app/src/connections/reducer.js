@@ -20,6 +20,10 @@ export default function reducer(state, action) {
       return { ...state, countryData: data, selectedCountry: countryCode };
     }
 
+    case "SET_GRAPH_DATA": {
+      return { ...state, graphData: action.payload };
+    }
+
     default: {
       return { ...state };
     }

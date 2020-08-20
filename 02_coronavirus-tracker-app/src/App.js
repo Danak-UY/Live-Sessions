@@ -8,14 +8,17 @@ import "./App.css";
 import Wrapper from "./components/Wrapper";
 import Header from "./components/Header";
 import StatsCardsList from "./components/StatsCardsList";
-import StatsMap from "./components/StatsMap";
+import StatsTabs from "./components/StatsTabs";
 import StatsTable from "./components/StatsTable";
 
 const initialState = {
   countriesList: [],
   countryData: [],
   countriesData: [],
+  graphData: [],
   selectedCountry: "worldwide",
+  historicalDays: "30",
+  APIURL: "https://disease.sh/v3/covid-19",
 };
 
 const store = createStore(reducer, initialState);
@@ -28,7 +31,7 @@ function App() {
         <Wrapper>
           <StatsCardsList />
           <section className="app__content">
-            <StatsMap title="Covid-19 Affected Areas" />
+            <StatsTabs title="Covid-19 Affected Areas" />
             <StatsTable />
           </section>
         </Wrapper>

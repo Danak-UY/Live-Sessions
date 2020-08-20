@@ -1,4 +1,4 @@
-.app__content__map {
+.app__content__tabs {
   background-color: var(--cl-white);
   padding: 2rem;
   box-shadow: 0px 4px 8px rgba(190, 193, 224, 0.320039);
@@ -6,7 +6,8 @@
   color: var(--cl-dark);
 }
 
-.app__content__map h2 {
+.app__content__tabs h2 {
   font-size: 1.25rem;
   font-weight: 500;
+  text-transform: capitalize;
 }
