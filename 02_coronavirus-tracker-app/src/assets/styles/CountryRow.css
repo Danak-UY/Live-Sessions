@@ -1,6 +1,7 @@
 .country__table {
+  padding: 1rem 0;
   overflow-y: auto;
-  max-height: 100%;
+  max-height: 78%;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 } /* Hide Scrollbar */

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Select, FormControl, MenuItem } from "@material-ui/core";
+import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMore";
+import "./../assets/styles/StatsFilter.css";
 
 function StatsFilter({ title, img }) {
   const dispatch = useDispatch();
@@ -55,9 +57,12 @@ function StatsFilter({ title, img }) {
       />
       <div className="card-stats__content">
         <h3>{title}</h3>
-
-        <FormControl>
-          <Select onChange={handleChange} value={selectedCountry}>
+        <FormControl className="filter__select">
+          <Select
+            onChange={handleChange}
+            value={selectedCountry}
+            IconComponent={(props) => <ExpandMoreRoundedIcon />}
+          >
             <MenuItem value="worldwide">Global</MenuItem>
             {countriesList.map((country, index) => (
               <MenuItem value={country.value} key={index}>

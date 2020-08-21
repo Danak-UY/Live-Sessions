@@ -1,6 +1,8 @@
 .app__content__map {
   height: 100%;
+  width: 100%;
   display: flex;
+  padding: 0 1rem;
 }
 
 .app__content__map .leaflet-container {

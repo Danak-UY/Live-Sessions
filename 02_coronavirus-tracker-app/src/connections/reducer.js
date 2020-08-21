@@ -28,6 +28,14 @@ export default function reducer(state, action) {
       return { ...state, casesType: action.payload };
     }
 
+    case "SET_FILTER_STAT": {
+      return { ...state, filterStat: action.payload };
+    }
+
+    case "SET_FILTER_CONTINENT": {
+      return { ...state, filterContinent: action.payload };
+    }
+
     default: {
       return { ...state };
     }

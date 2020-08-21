@@ -1,0 +1,18 @@
+.filter__select .MuiInput-underline::before,
+.filter__select .MuiInput-underline::after {
+  display: none;
+}
+
+.filter__select .MuiSelect-select.MuiSelect-select {
+  padding-right: 0.5rem;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.filter__select .MuiSvgIcon-root {
+  margin-bottom: 0.5rem;
+}
+
+.filter__select .MuiSelect-select:focus {
+  background-color: transparent;
+}

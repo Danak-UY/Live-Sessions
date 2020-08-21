@@ -18,6 +18,8 @@ const initialState = {
   countriesData: [],
   graphData: [],
   selectedCountry: "worldwide",
+  filterStat: "cases",
+  filterContinent: "worldwide",
   casesType: "cases",
   historicalDays: "30",
   APIURL: "https://disease.sh/v3/covid-19",
@@ -33,7 +35,7 @@ function App() {
         <Wrapper>
           <StatsCardsList />
           <section className="app__content">
-            <StatsTabs title="Covid-19 Affected Areas" />
+            <StatsTabs />
             <StatsTable />
           </section>
         </Wrapper>

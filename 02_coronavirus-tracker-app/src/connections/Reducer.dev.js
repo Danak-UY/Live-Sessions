@@ -53,6 +53,20 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_FILTER_STAT":
+      {
+        return _objectSpread({}, state, {
+          filterStat: action.payload
+        });
+      }
+
+    case "SET_FILTER_CONTINENT":
+      {
+        return _objectSpread({}, state, {
+          filterContinent: action.payload
+        });
+      }
+
     default:
       {
         return _objectSpread({}, state);

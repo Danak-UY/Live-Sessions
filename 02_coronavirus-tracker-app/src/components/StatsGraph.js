@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Line } from "react-chartjs-2";
-import { numeral } from "numeral";
+import numeral from "numeral";
+import { formatNumberWithComma } from "./functions/fuctions";
 
 import { categoryColors } from "./../assets/styles/colors.js";
 
@@ -19,22 +20,24 @@ const options = {
   tooltips: {
     mode: "index",
     intersect: false,
-    // callbacks: {
-    //   label: function (tooltipItem, data) {
-    //     return numeral(tooltipItem.value).format("+0,0");
-    //   },
-    // },
+    callbacks: {
+      label: function (tooltipItem, data) {
+        return ` + ${numeral(tooltipItem.value).format("0,0")}`;
+      },
+    },
   },
   scales: {
     xAxes: [
       {
         type: "time",
         time: {
-          format: "MM/DD/YY",
+          parser: "MM/DD/YY",
           tooltipFormat: "ll",
         },
         ticks: {
           maxTicksLimit: 8,
+          maxRotation: 0,
+          padding: 4,
         },
       },
     ],
@@ -44,11 +47,15 @@ const options = {
           display: false,
         },
         ticks: {
+          padding: -12,
+          z: 5,
+          mirror: true,
+          labelOffset: 20,
           beginAtZero: true,
-          maxTicksLimit: 5,
-          // callback: function (value, index, values) {
-          //   return numeral(value).format("0a");
-          // },
+          maxTicksLimit: 8,
+          callback: function (value, index, values) {
+            return numeral(value).format("0a");
+          },
         },
       },
     ],
@@ -95,12 +102,11 @@ function StatsGraph({ category = "cases" }) {
   }, []);
 
   useEffect(() => {
-    console.log("Graph data", graphData);
     setChartDataOrder(buildChartData(graphData, category));
   }, [category, graphData]);
 
   return (
-    <div>
+    <>
       {chartDataOrder.length !== 0 && (
         <Line
           style={{ width: "100%" }}
@@ -116,7 +122,7 @@ function StatsGraph({ category = "cases" }) {
           }}
         />
       )}
-    </div>
+    </>
   );
 }
 
