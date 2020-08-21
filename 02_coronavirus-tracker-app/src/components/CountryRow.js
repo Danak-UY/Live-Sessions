@@ -1,5 +1,4 @@
 import React from "react";
-import { formatNumberWithComma } from "./functions/fuctions";
 import numeral from "numeral";
 
 import "./../assets/styles/CountryRow.css";

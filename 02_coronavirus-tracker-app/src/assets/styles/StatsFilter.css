@@ -3,6 +3,22 @@
   display: none;
 }
 
+.filter__select.MuiFormControl-root {
+  max-width: 10ch;
+}
+
+@media screen and (min-width: 768px) {
+  .filter__select.MuiFormControl-root {
+    max-width: 18ch;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .filter__select.MuiFormControl-root {
+    max-width: 25ch;
+  }
+}
+
 .filter__select .MuiSelect-select.MuiSelect-select {
   padding-right: 0.5rem;
   font-weight: 500;

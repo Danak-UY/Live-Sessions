@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Select, FormControl, MenuItem } from "@material-ui/core";
 import ExpandMoreRoundedIcon from "@material-ui/icons/ExpandMore";
+
 import "./../assets/styles/StatsFilter.css";
 
 const DateMonth = [
@@ -25,9 +26,11 @@ function formatNumber(num) {
 
 function formatDate(timestamp) {
   const dateTime = new Date(timestamp);
-  return `${DateMonth[dateTime.getMonth()]}
-   ${dateTime.getDate()},
-   ${formatNumber(dateTime.getHours())}:${formatNumber(dateTime.getMinutes())}`;
+  return `${
+    DateMonth[dateTime.getMonth()]
+  } ${dateTime.getDate()}, ${formatNumber(dateTime.getHours())}:${formatNumber(
+    dateTime.getMinutes()
+  )}`;
 }
 
 function StatsFilter({ title, img }) {

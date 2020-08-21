@@ -45,10 +45,6 @@ const statsList = [
         value: "todayDeaths",
       },
       {
-        name: "Today Tests",
-        value: "todayTests",
-      },
-      {
         name: "Active",
         value: "active",
       },
@@ -72,6 +68,10 @@ const statsList = [
       {
         name: "Death per Million",
         value: "deathsPerOneMillion",
+      },
+      {
+        name: "Tests per Million",
+        value: "testsPerOneMillion",
       },
       {
         name: "Active per Million",
@@ -99,16 +99,29 @@ function FilterStat() {
   return (
     <FormControl variant="outlined">
       <Select onChange={handleChange} value={selectedStat}>
-        {statsList.map((statCategory, indexCategory) =>
-          // <ListSubheader key={indexCategory}>
-          //   {statCategory.name}
-          // </ListSubheader>
-          statCategory.values.map((stat, index) => (
-            <MenuItem value={stat.value} key={index}>
-              {stat.name}
-            </MenuItem>
-          ))
-        )}
+        {/* Total */}
+        <ListSubheader>{statsList[0].name}</ListSubheader>
+        {statsList[0].values.map((stat, index) => (
+          <MenuItem value={stat.value} key={index}>
+            {stat.name}
+          </MenuItem>
+        ))}
+
+        {/* Today */}
+        <ListSubheader>{statsList[1].name}</ListSubheader>
+        {statsList[1].values.map((stat, index) => (
+          <MenuItem value={stat.value} key={index}>
+            {stat.name}
+          </MenuItem>
+        ))}
+
+        {/* Per Million */}
+        <ListSubheader>{statsList[2].name}</ListSubheader>
+        {statsList[2].values.map((stat, index) => (
+          <MenuItem value={stat.value} key={index}>
+            {stat.name}
+          </MenuItem>
+        ))}
       </Select>
     </FormControl>
   );

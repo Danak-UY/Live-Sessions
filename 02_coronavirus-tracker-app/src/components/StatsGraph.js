@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
-import { formatNumberWithComma } from "./functions/fuctions";
 
 import { categoryColors } from "./../assets/styles/colors.js";
 

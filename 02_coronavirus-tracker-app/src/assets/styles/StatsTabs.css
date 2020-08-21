@@ -22,7 +22,7 @@
 }
 
 .tabs__content {
-  height: 90%;
+  height: 80%;
   min-height: 20rem;
   display: flex;
   justify-content: stretch;
@@ -38,5 +38,9 @@
 
   .app__content__tabs h2 {
     margin-bottom: 0;
+  }
+
+  .tabs__content {
+    height: 90%;
   }
 }
