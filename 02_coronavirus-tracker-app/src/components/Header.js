@@ -25,6 +25,8 @@ function Header() {
             the World Health Organization (WHO) on 11 March 2020.
           </p>
           <Button
+            href="https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html"
+            target="_blank"
             variant="contained"
             color="secondary"
             className={classes.button}

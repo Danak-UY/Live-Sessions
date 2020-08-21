@@ -34,6 +34,7 @@ function StatsCard({
         <h2>{numeral(todayCases).format("0,0")}</h2>
         <p className={`stats-${trending} stats-percentage`}>
           <img
+            loading="eager"
             src={`${require(`./../assets/images/ic-trending-${trending}.svg`)}`}
             alt="Trend Icon"
           />

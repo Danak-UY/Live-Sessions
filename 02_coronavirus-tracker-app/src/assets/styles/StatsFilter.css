@@ -20,4 +20,24 @@
 .stats-percentage.stats-date {
   color: var(--cl-ic-gray);
   font-weight: 400;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.stats-percentage.stats-date:hover {
+  color: var(--cl-dark);
+  text-decoration: underline;
+}
+
+.stats-percentage.stats-date img {
+  width: 0.8rem;
+  position: relative;
+  top: -0.4rem;
+  margin-right: 0.25rem;
+  transition: 0.6s ease;
+}
+
+.stats-percentage.stats-date:hover img {
+  transform: rotate(-360deg);
 }

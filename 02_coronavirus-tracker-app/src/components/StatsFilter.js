@@ -75,6 +75,14 @@ function StatsFilter({ title, img }) {
       });
   }
 
+  function reloadStats() {
+    const url =
+      selectedCountry === "worldwide"
+        ? `${APIURL}/all`
+        : `${APIURL}/countries/${selectedCountry}`;
+    getCountyData(url, selectedCountry);
+  }
+
   return (
     <article className="card-stats">
       <div className="card-stats__img">
@@ -101,9 +109,14 @@ function StatsFilter({ title, img }) {
           </Select>
         </FormControl>
         {lastUpdate && (
-          <p className="stats-percentage stats-date">
+          <a className="stats-percentage stats-date" onClick={reloadStats}>
+            <img
+              loading="eager"
+              src={`${require(`./../assets/images/ic-clock.svg`)}`}
+              alt="Trend Icon"
+            />
             {formatDate(lastUpdate)}
-          </p>
+          </a>
         )}
       </div>
     </article>
