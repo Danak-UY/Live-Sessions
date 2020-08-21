@@ -15,7 +15,6 @@ function StatsCardsList() {
       type: "SET_CATEGORY_TYPE",
       payload: type,
     });
-    console.log(type);
   }
 
   return (
@@ -29,6 +28,7 @@ function StatsCardsList() {
             todayCases={countryData.todayCases}
             casesPerMillion={countryData.casesPerOneMillion}
             img="ic-emo-red"
+            cardType="cases"
             handleClick={(e) => updateCategory("cases")}
           />
           <StatsCard
@@ -37,6 +37,7 @@ function StatsCardsList() {
             todayCases={countryData.todayRecovered}
             casesPerMillion={countryData.recoveredPerOneMillion}
             img="ic-emo-green"
+            cardType="recovered"
             handleClick={(e) => updateCategory("recovered")}
           />
           <StatsCard
@@ -45,6 +46,7 @@ function StatsCardsList() {
             todayCases={countryData.todayDeaths}
             casesPerMillion={countryData.deathsPerOneMillion}
             img="ic-emo-gray"
+            cardType="deaths"
             handleClick={(e) => updateCategory("deaths")}
           />
         </>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import numeral from "numeral";
 
 import "./../assets/styles/StatsCard.css";
@@ -10,15 +11,24 @@ function StatsCard({
   todayCases,
   casesPerMillion,
   handleClick,
+  cardType,
 }) {
-  const trending = (casesPerMillion / todayCases) * 100 < 1 ? "down" : "up";
+  const cardActive = useSelector((state) => state.casesType === cardType);
+  const trending = (todayCases * 100) / casesPerMillion < 10 ? "down" : "up";
+
   return (
     <article className="card-stats card-stats__numbers" onClick={handleClick}>
-      <img
-        loading="eager"
-        src={`${require(`./../assets/images/${img}.svg`)}`}
-        alt="Icon"
-      />
+      <div
+        className={`card-stats__img ${
+          cardActive ? "card__active" : ""
+        } card__${cardType}`}
+      >
+        <img
+          loading="eager"
+          src={`${require(`./../assets/images/${img}.svg`)}`}
+          alt="Icon"
+        />
+      </div>
       <div className="card-stats__content">
         <h3>{title}</h3>
         <h2>{numeral(todayCases).format("0,0")}</h2>

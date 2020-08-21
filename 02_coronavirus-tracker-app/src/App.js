@@ -23,6 +23,7 @@ const initialState = {
   filterContinent: "worldwide",
   casesType: "cases",
   historicalDays: "30",
+  lastUpdate: "",
   APIURL: "https://disease.sh/v3/covid-19",
 };
 

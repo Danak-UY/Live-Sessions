@@ -16,3 +16,8 @@
 .filter__select .MuiSelect-select:focus {
   background-color: transparent;
 }
+
+.stats-percentage.stats-date {
+  color: var(--cl-ic-gray);
+  font-weight: 400;
+}

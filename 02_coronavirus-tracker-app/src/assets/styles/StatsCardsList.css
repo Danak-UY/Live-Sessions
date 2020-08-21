@@ -22,8 +22,39 @@
   cursor: pointer;
 }
 
-.card-stats > img {
+.card-stats__img {
   margin-right: 0.5rem;
+  position: relative;
+}
+
+.card-stats__img::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  width: 0;
+  height: 0.2rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card-stats__img.card__active::after {
+  opacity: 0.6;
+  width: 2rem;
+  transform: translateX(-1rem);
+}
+
+.card-stats__img.card__cases::after {
+  background-color: var(--cl-red);
+}
+
+.card-stats__img.card__recovered::after {
+  background-color: var(--cl-green);
+}
+
+.card-stats__img.card__deaths::after {
+  background-color: var(--cl-ic-gray);
 }
 
 .card-stats__content h3 {

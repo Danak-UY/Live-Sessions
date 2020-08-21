@@ -42,7 +42,6 @@ function FilterContinent() {
       type: "SET_FILTER_CONTINENT",
       payload: ev.target.value,
     });
-    console.log(ev.target.value);
   }
   return (
     <FormControl variant="outlined">

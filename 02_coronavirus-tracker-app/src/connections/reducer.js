@@ -3,13 +3,14 @@ import { sortDataByField } from "./../components/functions/fuctions";
 export default function reducer(state, action) {
   switch (action.type) {
     case "SET_COUNTRIES_DATA": {
-      const countries = action.payload.map((item) => ({
+      const allContriesData = action.payload;
+      const countries = allContriesData.map((item) => ({
         name: item.country,
         value: item.countryInfo.iso3,
       }));
       return {
         ...state,
-        countriesData: sortDataByField(action.payload, state.filterStat),
+        countriesData: sortDataByField(allContriesData, state.filterStat),
         countriesList: countries,
       };
     }
@@ -17,7 +18,12 @@ export default function reducer(state, action) {
     case "SET_COUNTRY_DATA": {
       const data = action.payload.data;
       const countryCode = action.payload.countryCode || "worldwide";
-      return { ...state, countryData: data, selectedCountry: countryCode };
+      return {
+        ...state,
+        countryData: data,
+        selectedCountry: countryCode,
+        lastUpdate: data.updated,
+      };
     }
 
     case "SET_GRAPH_DATA": {
@@ -50,7 +56,7 @@ export default function reducer(state, action) {
           (country) => country.continent === continentSelected
         );
       }
-      console.log(continentData);
+
       return {
         ...state,
         filterContinent: continentSelected,

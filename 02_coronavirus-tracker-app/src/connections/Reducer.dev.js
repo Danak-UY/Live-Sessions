@@ -17,14 +17,15 @@ function reducer(state, action) {
   switch (action.type) {
     case "SET_COUNTRIES_DATA":
       {
-        var countries = action.payload.map(function (item) {
+        var allContriesData = action.payload;
+        var countries = allContriesData.map(function (item) {
           return {
             name: item.country,
             value: item.countryInfo.iso3
           };
         });
         return _objectSpread({}, state, {
-          countriesData: (0, _fuctions.sortDataByField)(action.payload, state.filterStat),
+          countriesData: (0, _fuctions.sortDataByField)(allContriesData, state.filterStat),
           countriesList: countries
         });
       }
@@ -35,7 +36,8 @@ function reducer(state, action) {
         var countryCode = action.payload.countryCode || "worldwide";
         return _objectSpread({}, state, {
           countryData: data,
-          selectedCountry: countryCode
+          selectedCountry: countryCode,
+          lastUpdate: data.updated
         });
       }
 
@@ -74,7 +76,6 @@ function reducer(state, action) {
           });
         }
 
-        console.log(continentData);
         return _objectSpread({}, state, {
           filterContinent: continentSelected,
           countriesContinentData: (0, _fuctions.sortDataByField)(continentData, state.filterStat)

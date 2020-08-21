@@ -7,6 +7,7 @@
   --cl-white: #ffffff;
   --cl-red: #ff3e29;
   --cl-green: #00db75;
+  --cl-ic-gray: #3d3f52;
 }
 
 @import url("./assets/styles/stylesheet-fonts.css");
