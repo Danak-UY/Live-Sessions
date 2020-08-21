@@ -16,6 +16,7 @@ const initialState = {
   countriesList: [],
   countryData: [],
   countriesData: [],
+  countriesContinentData: [],
   graphData: [],
   selectedCountry: "worldwide",
   filterStat: "cases",

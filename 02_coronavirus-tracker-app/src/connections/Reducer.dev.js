@@ -24,7 +24,7 @@ function reducer(state, action) {
           };
         });
         return _objectSpread({}, state, {
-          countriesData: (0, _fuctions.sortDataByField)(action.payload, "cases"),
+          countriesData: (0, _fuctions.sortDataByField)(action.payload, state.filterStat),
           countriesList: countries
         });
       }
@@ -55,15 +55,29 @@ function reducer(state, action) {
 
     case "SET_FILTER_STAT":
       {
+        var statSelected = action.payload;
         return _objectSpread({}, state, {
-          filterStat: action.payload
+          countriesData: (0, _fuctions.sortDataByField)(state.countriesData, statSelected),
+          countriesContinentData: (0, _fuctions.sortDataByField)(state.countriesContinentData, statSelected),
+          filterStat: statSelected
         });
       }
 
     case "SET_FILTER_CONTINENT":
       {
+        var continentSelected = action.payload;
+        var continentData = [];
+
+        if (continentSelected !== "worldwide") {
+          continentData = state.countriesData.filter(function (country) {
+            return country.continent === continentSelected;
+          });
+        }
+
+        console.log(continentData);
         return _objectSpread({}, state, {
-          filterContinent: action.payload
+          filterContinent: continentSelected,
+          countriesContinentData: (0, _fuctions.sortDataByField)(continentData, state.filterStat)
         });
       }
 

@@ -20,8 +20,6 @@ function StatsMap({ category = "cases" }) {
   );
   const mapData = useSelector((state) => state.countriesData);
 
-  console.log(mapData);
-
   return (
     <article className="app__content__map">
       <LeafletMap center={mapCenter} zoom={mapZoom}>

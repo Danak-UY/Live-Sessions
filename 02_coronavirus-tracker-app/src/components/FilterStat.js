@@ -88,12 +88,14 @@ const statsList = [
 function FilterStat() {
   const dispatch = useDispatch();
   const selectedStat = useSelector((state) => state.filterStat);
+
   function handleChange(ev) {
     dispatch({
       type: "SET_FILTER_STAT",
       payload: ev.target.value,
     });
   }
+
   return (
     <FormControl variant="outlined">
       <Select onChange={handleChange} value={selectedStat}>

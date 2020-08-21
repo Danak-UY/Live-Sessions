@@ -9,7 +9,7 @@ export default function reducer(state, action) {
       }));
       return {
         ...state,
-        countriesData: sortDataByField(action.payload, "cases"),
+        countriesData: sortDataByField(action.payload, state.filterStat),
         countriesList: countries,
       };
     }
@@ -29,11 +29,36 @@ export default function reducer(state, action) {
     }
 
     case "SET_FILTER_STAT": {
-      return { ...state, filterStat: action.payload };
+      const statSelected = action.payload;
+
+      return {
+        ...state,
+        countriesData: sortDataByField(state.countriesData, statSelected),
+        countriesContinentData: sortDataByField(
+          state.countriesContinentData,
+          statSelected
+        ),
+        filterStat: statSelected,
+      };
     }
 
     case "SET_FILTER_CONTINENT": {
-      return { ...state, filterContinent: action.payload };
+      const continentSelected = action.payload;
+      let continentData = [];
+      if (continentSelected !== "worldwide") {
+        continentData = state.countriesData.filter(
+          (country) => country.continent === continentSelected
+        );
+      }
+      console.log(continentData);
+      return {
+        ...state,
+        filterContinent: continentSelected,
+        countriesContinentData: sortDataByField(
+          continentData,
+          state.filterStat
+        ),
+      };
     }
 
     default: {
