@@ -18,11 +18,22 @@ export default function reducer(state, action) {
     case "SET_COUNTRY_DATA": {
       const data = action.payload.data;
       const countryCode = action.payload.countryCode || "worldwide";
+      const allData = countryCode === "worldwide" ? data : state.allStatsData;
       return {
         ...state,
         countryData: data,
         selectedCountry: countryCode,
         lastUpdate: data.updated,
+        allStatsData: allData,
+      };
+    }
+
+    case "SET_CONTINENTS_DATA": {
+      return {
+        ...state,
+        continentsData: action.payload.sort(
+          (a, b) => a.continent > b.continent
+        ),
       };
     }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   Select,
@@ -6,6 +6,9 @@ import {
   MenuItem,
   ListSubheader,
 } from "@material-ui/core";
+import numeral from "numeral";
+
+import "./../assets/styles/FilterContinent.css";
 
 const continentsList = [
   {
@@ -36,21 +39,53 @@ const continentsList = [
 
 function FilterContinent() {
   const dispatch = useDispatch();
+  const APIURL = useSelector((state) => state.APIURL);
   const selectedContinent = useSelector((state) => state.filterContinent);
+  const continentsData = useSelector((state) => state.continentsData);
+  const allStatsData = useSelector((state) => state.allStatsData);
+  const statSelected = useSelector((state) => state.filterStat);
+
   function handleChange(ev) {
     dispatch({
       type: "SET_FILTER_CONTINENT",
       payload: ev.target.value,
     });
   }
+
+  useEffect(() => {
+    const getContinentsData = async () => {
+      await fetch(`${APIURL}/continents`)
+        .then((response) => response.json())
+        .then((data) => {
+          dispatch({
+            type: "SET_CONTINENTS_DATA",
+            payload: data,
+          });
+        });
+    };
+    getContinentsData();
+  }, []);
+
   return (
     <FormControl variant="outlined">
       <Select onChange={handleChange} value={selectedContinent}>
-        <MenuItem value="worldwide">Global</MenuItem>
+        <MenuItem value="worldwide" className="continents__select">
+          Global
+          <span className="continents__stats">
+            {numeral(allStatsData[statSelected]).format("0,0")}
+          </span>
+        </MenuItem>
         <ListSubheader>Continents</ListSubheader>
-        {continentsList.map((continent, index) => (
-          <MenuItem value={continent.value} key={index}>
-            {continent.name}
+        {continentsData.map((continent, index) => (
+          <MenuItem
+            value={continent.continent}
+            key={index}
+            className="continents__select"
+          >
+            {continent.continent}
+            <span className="continents__stats">
+              {numeral(continent[statSelected]).format("0,0")}
+            </span>
           </MenuItem>
         ))}
       </Select>

@@ -1,0 +1,16 @@
+li.MuiMenuItem-root.continents__select,
+.table__filter > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.continents__select .continents__stats,
+.table__filter
+  > div:nth-child(2)
+  > div:nth-child(1)
+  > div:nth-child(1)
+  .continents__stats {
+  color: var(--cl-dark);
+  font-size: 0.9rem;
+}

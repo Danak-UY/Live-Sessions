@@ -34,10 +34,21 @@ function reducer(state, action) {
       {
         var data = action.payload.data;
         var countryCode = action.payload.countryCode || "worldwide";
+        var allData = countryCode === "worldwide" ? data : state.allStatsData;
         return _objectSpread({}, state, {
           countryData: data,
           selectedCountry: countryCode,
-          lastUpdate: data.updated
+          lastUpdate: data.updated,
+          allStatsData: allData
+        });
+      }
+
+    case "SET_CONTINENTS_DATA":
+      {
+        return _objectSpread({}, state, {
+          continentsData: action.payload.sort(function (a, b) {
+            return a.continent > b.continent;
+          })
         });
       }
 
