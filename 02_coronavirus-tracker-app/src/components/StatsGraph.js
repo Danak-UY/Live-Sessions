@@ -82,27 +82,33 @@ function StatsGraph({ category = "cases" }) {
   const APIURL = useSelector((state) => state.APIURL);
   const historical = useSelector((state) => state.historicalDays);
   const graphData = useSelector((state) => state.graphData);
+  const selectedCountry = useSelector((state) => state.selectedCountry);
   const [chartDataOrder, setChartDataOrder] = useState(
     graphData ? buildChartData(graphData, category) : []
   );
 
   useEffect(() => {
-    const getGraphData = async () => {
-      await fetch(`${APIURL}/historical/all?lastdays=${historical}`)
-        .then((response) => response.json())
-        .then((data) => {
-          dispatch({
-            type: "SET_GRAPH_DATA",
-            payload: data,
-          });
-        });
-    };
-    getGraphData();
-  }, []);
+    let route = selectedCountry === "worldwide" ? "all" : selectedCountry;
+    getGraphData(APIURL, route, historical);
+  }, [selectedCountry, historical]);
 
   useEffect(() => {
     setChartDataOrder(buildChartData(graphData, category));
   }, [category, graphData]);
+
+  async function getGraphData(url, countryCode, historicalDays) {
+    await fetch(`${url}/historical/${countryCode}?lastdays=${historicalDays}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (!data.message) {
+          dispatch({
+            type: "SET_GRAPH_DATA",
+            payload: countryCode === "all" ? data : data.timeline,
+          });
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <>

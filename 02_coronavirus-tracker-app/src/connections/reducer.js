@@ -45,6 +45,10 @@ export default function reducer(state, action) {
       return { ...state, casesType: action.payload };
     }
 
+    case "SET_HISTORY_DAYS": {
+      return { ...state, historicalDays: action.payload };
+    }
+
     case "SET_FILTER_STAT": {
       const statSelected = action.payload;
 

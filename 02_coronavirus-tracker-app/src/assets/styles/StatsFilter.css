@@ -57,3 +57,7 @@
 .stats-percentage.stats-date:hover img {
   transform: rotate(-360deg);
 }
+
+.cards-container .MuiInputBase-root {
+  color: var(--cl-primary);
+}

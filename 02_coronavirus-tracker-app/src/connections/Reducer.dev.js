@@ -66,6 +66,13 @@ function reducer(state, action) {
         });
       }
 
+    case "SET_HISTORY_DAYS":
+      {
+        return _objectSpread({}, state, {
+          historicalDays: action.payload
+        });
+      }
+
     case "SET_FILTER_STAT":
       {
         var statSelected = action.payload;

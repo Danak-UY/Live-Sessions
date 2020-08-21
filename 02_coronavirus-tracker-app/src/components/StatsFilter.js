@@ -112,14 +112,14 @@ function StatsFilter({ title, img }) {
           </Select>
         </FormControl>
         {lastUpdate && (
-          <a className="stats-percentage stats-date" onClick={reloadStats}>
+          <p className="stats-percentage stats-date" onClick={reloadStats}>
             <img
               loading="eager"
               src={`${require(`./../assets/images/ic-clock.svg`)}`}
               alt="Trend Icon"
             />
             {formatDate(lastUpdate)}
-          </a>
+          </p>
         )}
       </div>
     </article>
