@@ -1,0 +1,29 @@
+.home__header {
+  background-color: var(--cl-primary);
+  height: 75vh;
+}
+
+header {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button.ant-btn-link {
+  color: var(--cl-primary-dark);
+  font-weight: 600;
+}
+
+button.ant-btn-link:hover {
+  color: var(--cl-white);
+  opacity: 0.4;
+}
+
+.header__card {
+  background-color: var(--cl-primary-dark);
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+}
