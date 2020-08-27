@@ -3,7 +3,8 @@ import "antd/dist/antd.css";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
+import ResultPage from "./pages/ResultPage";
 import Footer from "./components/Footer";
 
 function App() {
@@ -11,9 +12,11 @@ function App() {
     <div className="app">
       <Router>
         <Switch>
-          <Route path="/search"></Route>
+          <Route path="/search">
+            <ResultPage />
+          </Route>
           <Route path="/">
-            <Home />
+            <HomePage />
           </Route>
         </Switch>
         <Footer />

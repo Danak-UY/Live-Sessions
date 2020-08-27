@@ -4,7 +4,7 @@ import "../assets/styles/Home.css";
 import HeaderHome from "../components/HeaderHome";
 import SearchHome from "../components/SearchHome";
 
-function Home() {
+function HomePage() {
   return (
     <div className="home__header">
       <HeaderHome />
@@ -13,4 +13,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomePage;

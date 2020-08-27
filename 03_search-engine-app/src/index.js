@@ -1,12 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { StateProvider } from "./components/StateProvider";
 import App from "./App";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
+import reducer from "./reducer";
+
+const initialState = {
+  query: null,
+};
 
 ReactDOM.render(
   <React.Fragment>
-    <App />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </StateProvider>
   </React.Fragment>,
   document.getElementById("root")
 );

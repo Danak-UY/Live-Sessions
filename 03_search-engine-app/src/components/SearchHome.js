@@ -4,14 +4,21 @@ import slugify from "slugify";
 import { Button } from "antd";
 import { SearchOutlined, FireOutlined } from "@ant-design/icons";
 import "../assets/styles/SearchHome.css";
+import { actionTypes } from "./../reducer";
+import { useStateValue } from "./StateProvider";
 
 import InputField from "./InputField";
 
 function SearchHome() {
+  const [{}, dispatch] = useStateValue();
   const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   function handleSearch(ev) {
     ev.preventDefault();
+    dispatch({
+      type: actionTypes.SET_SEARCH_QUERY,
+      payload: searchItem,
+    });
     history.push(`/search?q=${slugify(searchItem)}`);
   }
   return (
