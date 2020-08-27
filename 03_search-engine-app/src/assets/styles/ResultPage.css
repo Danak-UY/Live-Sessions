@@ -6,6 +6,20 @@
   padding: 1.5rem;
 }
 
+.result__tabs {
+  padding: 1rem 2rem;
+}
+
+.result__tabs .ant-tabs .ant-tabs-tab-active {
+  color: var(--cl-primary);
+}
+
+.result__tabs .ant-divider {
+  position: relative;
+  z-index: 5;
+  margin-top: -1.1rem;
+}
+
 .header__search {
   display: flex;
   align-items: center;

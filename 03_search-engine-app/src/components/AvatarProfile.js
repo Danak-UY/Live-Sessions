@@ -8,8 +8,6 @@ function AvatarProfile() {
   const [{ avatarProfiles }, dispatch] = useStateValue();
   const [usersList, setUsersList] = useState(avatarProfiles);
 
-  console.log(usersList);
-
   useEffect(() => {
     if (usersList.length === 0) getUserInfo();
   }, []);
