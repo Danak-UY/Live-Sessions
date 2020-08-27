@@ -4,10 +4,17 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .result__tabs {
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 0rem;
+}
+
+.result__cards {
+  padding: 0rem 2rem;
 }
 
 .result__tabs .ant-tabs .ant-tabs-tab-active {
@@ -81,4 +88,16 @@
   .header__search {
     margin-right: 0;
   }
+}
+
+.back-to-up-default {
+  background-color: var(--cl-white);
+  border-radius: 1rem;
+  background-size: 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.back-to-up-default-text {
+  display: none;
 }

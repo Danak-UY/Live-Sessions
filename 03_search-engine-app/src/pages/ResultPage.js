@@ -11,6 +11,8 @@ import AvatarProfile from "./../components/AvatarProfile";
 import Response from "./../response";
 import InputField from "./../components/InputField";
 import ResultTabs from "./../components/ResultTabs";
+import ResultCard from "./../components/ResultCard";
+import ResultStats from "./../components/ResultStats";
 
 import "./../assets/styles/ResultPage.css";
 
@@ -64,6 +66,17 @@ function ResultPage() {
       <div className="result__tabs">
         <ResultTabs />
         <Divider />
+      </div>
+      <div className="result__cards">
+        {data.length !== 0 && (
+          <>
+            <ResultStats {...data.searchInformation} />
+            {data.items.map((item, index) => (
+              <ResultCard key={index} {...item} />
+            ))}
+          </>
+        )}
+        {console.log(data)}
       </div>
     </div>
   );
