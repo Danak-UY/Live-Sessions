@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory, Link } from "react-router-dom";
 import slugify from "slugify";
 import { useStateValue } from "./../components/StateProvider";
@@ -20,19 +20,34 @@ function ResultPage() {
   const [{ query }, dispatch] = useStateValue();
   const history = useHistory();
   const [searchItem, setSearchItem] = useState(query);
+  const [searchPage, setSearchPage] = useState(0);
   // LIVE API DATA
-  //const { data } = useGoogleSearch(query);
+  // const { data } = useGoogleSearch(query, searchPage);
   const data = Response;
+  const [dataList, setDataList] = useState([]);
+
+  console.log("page results", data);
+  console.log("page items", dataList);
+
+  useEffect(() => {
+    if (data.items) setDataList([...dataList, ...data.items]);
+  }, [data]);
 
   function handleSearch(ev) {
     ev.preventDefault();
     if (searchItem) {
+      console.log("handle change", searchItem);
+      setSearchPage(0);
       dispatch({
         type: actionTypes.SET_SEARCH_QUERY,
         payload: searchItem,
       });
       history.push(`/search?q=${slugify(searchItem)}`);
     }
+  }
+
+  function addResults() {
+    setSearchPage(searchPage + 1);
   }
   return (
     <div>
@@ -68,15 +83,31 @@ function ResultPage() {
         <Divider />
       </div>
       <div className="result__cards">
-        {data.length !== 0 && (
+        {!data.error && data.length !== 0 ? (
           <>
             <ResultStats {...data.searchInformation} />
-            {data.items.map((item, index) => (
+            {dataList.map((item, index) => (
               <ResultCard key={index} {...item} />
             ))}
           </>
+        ) : (
+          <p>Error</p>
         )}
-        {console.log(data)}
+        {!data.error &&
+          data.length !== 0 &&
+          data.queries?.nextPage &&
+          data.queries?.nextPage[0] && (
+            <div className="button__load-more">
+              <Button
+                onClick={addResults}
+                type="ghost"
+                shape="round"
+                size="large"
+              >
+                Load more results
+              </Button>
+            </div>
+          )}
       </div>
     </div>
   );

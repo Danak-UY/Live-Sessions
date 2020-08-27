@@ -29,6 +29,7 @@ var reducer = function reducer(state, action) {
   switch (action.type) {
     case actionTypes.SET_SEARCH_QUERY:
       {
+        console.log("reducer query", action.payload);
         return _objectSpread({}, state, {
           query: action.payload
         });

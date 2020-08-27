@@ -7,7 +7,11 @@ import * as serviceWorker from "./serviceWorker";
 import reducer from "./reducer";
 
 const initialState = {
-  query: null,
+  query: window.location.search
+    ? decodeURIComponent(
+        window.location.search.match(/(\?|&)q\=([^&]*)/)[2]
+      ).replaceAll("-", " ")
+    : "",
   avatarProfiles: [],
 };
 

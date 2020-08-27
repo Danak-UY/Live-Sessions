@@ -44,3 +44,11 @@ article .card__thumbnail {
   border-radius: 1rem;
   margin-right: 0.5rem;
 }
+
+.result__cards button {
+  color: var(--cl-dark);
+  margin-top: 1rem;
+}
+.button__load-more {
+  text-align: center;
+}

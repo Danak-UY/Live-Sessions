@@ -6,6 +6,7 @@ export const actionTypes = {
 const reducer = (state, action) => {
   switch (action.type) {
     case actionTypes.SET_SEARCH_QUERY: {
+      console.log("reducer query", action.payload);
       return { ...state, query: action.payload };
     }
     case actionTypes.SET_USER_DATA: {

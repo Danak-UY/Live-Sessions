@@ -15,7 +15,7 @@ function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) ||
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var useGoogleSearch = function useGoogleSearch(term) {
+var useGoogleSearch = function useGoogleSearch(term, page) {
   var _useState = (0, _react.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       data = _useState2[0],
@@ -29,10 +29,12 @@ var useGoogleSearch = function useGoogleSearch(term) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return regeneratorRuntime.awrap(fetch("https://www.googleapis.com/customsearch/v1?key=".concat(process.env.REACT_APP_GOOGLE_API_KEY, "&cx=").concat(process.env.REACT_APP_CONTEXT_KEY, "&q=").concat(term)).then(function (response) {
+                return regeneratorRuntime.awrap(fetch("https://www.googleapis.com/customsearch/v1?key=".concat(process.env.REACT_APP_GOOGLE_API_KEY, "&cx=").concat(process.env.REACT_APP_CONTEXT_KEY, "&q=").concat(term, "&filter=1&start=").concat(page * 10 + 1)).then(function (response) {
                   return response.json();
                 }).then(function (result) {
                   return setData(result);
+                })["catch"](function (err) {
+                  return setData(null);
                 }));
 
               case 2:
@@ -44,8 +46,9 @@ var useGoogleSearch = function useGoogleSearch(term) {
       };
 
       fetchData();
+      console.log("google search", term, page);
     }
-  }, [term]);
+  }, [term, page]);
   return {
     data: data
   };
