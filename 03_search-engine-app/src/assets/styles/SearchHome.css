@@ -1,6 +1,6 @@
 .home__search {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 5rem;
   padding-top: 15vh;
   display: flex;
   justify-content: center;
@@ -55,16 +55,18 @@
 }
 
 .search__buttons button:hover {
-  background-color: var(--cl-light);
+  background-color: var(--cl-white);
   color: var(--cl-primary);
+  box-shadow: 0px 0px 4px 2px rgba(58, 58, 58, 0.12);
 }
 
-.search__buttons .btn__secondary {
+.search__buttons .btn__secondary,
+.search__buttons .btn__secondary:focus {
   background-color: var(--cl-primary-dark);
   color: var(--cl-white);
 }
 
 .search__buttons .btn__secondary:hover {
-  background-color: var(--cl-primary);
+  background-color: var(--cl-primary-dark);
   color: var(--cl-white);
 }

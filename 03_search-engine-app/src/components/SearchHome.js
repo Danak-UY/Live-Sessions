@@ -1,22 +1,25 @@
 import React, { useState } from "react";
-import { Input, Button } from "antd";
+import { Button } from "antd";
 import { SearchOutlined, AudioOutlined, FireOutlined } from "@ant-design/icons";
 import "../assets/styles/SearchHome.css";
 
+import InputField from "./InputField";
+
 function SearchHome() {
   const [searchItem, setSearchItem] = useState("");
+  function handleSearch(ev) {
+    ev.preventDefault();
+    console.log(searchItem);
+  }
   return (
-    <div className="home__search">
+    <form className="home__search">
       <img
         src={`${require(`./../assets/images/search-logo-white.svg`)}`}
         alt="Search logo"
       />
-      <Input
-        size="large"
-        prefix={<SearchOutlined />}
-        suffix={<AudioOutlined />}
-        value={searchItem}
-        onChange={(ev) => setSearchItem(ev.target.value)}
+      <InputField
+        handleChange={(value) => setSearchItem(value)}
+        searchItem={searchItem}
       />
       <div className="search__buttons">
         <Button
@@ -24,6 +27,8 @@ function SearchHome() {
           shape="round"
           icon={<SearchOutlined />}
           size="large"
+          htmlType="submit"
+          onClick={handleSearch}
         >
           Search
         </Button>
@@ -37,7 +42,7 @@ function SearchHome() {
           Feeling Lucky
         </Button>
       </div>
-    </div>
+    </form>
   );
 }
 
