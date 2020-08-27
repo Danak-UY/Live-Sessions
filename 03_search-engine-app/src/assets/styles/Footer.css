@@ -1,0 +1,19 @@
+footer {
+  padding: 1.5rem;
+}
+
+.footer__links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__links .ant-btn-link,
+.footer__links .ant-btn-text:focus {
+  color: var(--cl-dark);
+  opacity: 0.6;
+  font-weight: 600;
+}
+.footer__links .ant-btn-link:hover {
+  color: var(--cl-dark);
+  opacity: 1;
+}

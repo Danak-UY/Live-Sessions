@@ -1,7 +1,6 @@
 .home__search {
   text-align: center;
-  padding: 4rem 2rem 5rem;
-  padding-top: 15vh;
+  padding: 12vh 2rem 5rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,6 +11,11 @@
 .home__search img {
   max-width: 20rem;
   margin-bottom: 4rem;
+}
+
+.link-logo {
+  display: block;
+  width: 100%;
 }
 
 .home__search .ant-input-affix-wrapper {

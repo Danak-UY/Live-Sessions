@@ -1,22 +1,27 @@
 import React, { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
+import slugify from "slugify";
 import { Button } from "antd";
-import { SearchOutlined, AudioOutlined, FireOutlined } from "@ant-design/icons";
+import { SearchOutlined, FireOutlined } from "@ant-design/icons";
 import "../assets/styles/SearchHome.css";
 
 import InputField from "./InputField";
 
 function SearchHome() {
+  const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   function handleSearch(ev) {
     ev.preventDefault();
-    console.log(searchItem);
+    history.push(`/search?q=${slugify(searchItem)}`);
   }
   return (
     <form className="home__search">
-      <img
-        src={`${require(`./../assets/images/search-logo-white.svg`)}`}
-        alt="Search logo"
-      />
+      <Link to="/" className="link-logo">
+        <img
+          src={`${require(`./../assets/images/search-logo-white.svg`)}`}
+          alt="Search logo"
+        />
+      </Link>
       <InputField
         handleChange={(value) => setSearchItem(value)}
         searchItem={searchItem}
