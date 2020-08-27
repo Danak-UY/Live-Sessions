@@ -4,8 +4,8 @@ import slugify from "slugify";
 import { useStateValue } from "./../components/StateProvider";
 import useGoogleSearch from "./../useGoogleSearch";
 import { actionTypes } from "./../reducer";
-import { Button, Divider } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
+import { Button, Divider, BackTop } from "antd";
+import { SearchOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
 import AvatarProfile from "./../components/AvatarProfile";
 import Response from "./../response";
@@ -109,6 +109,9 @@ function ResultPage() {
             </div>
           )}
       </div>
+      <BackTop className="back-to-top">
+        <ArrowUpOutlined />
+      </BackTop>
     </div>
   );
 }
