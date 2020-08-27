@@ -8,6 +8,7 @@ import reducer from "./reducer";
 
 const initialState = {
   query: null,
+  avatarProfiles: [],
 };
 
 ReactDOM.render(

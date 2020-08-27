@@ -10,16 +10,18 @@ import { useStateValue } from "./StateProvider";
 import InputField from "./InputField";
 
 function SearchHome() {
-  const [{}, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
   const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   function handleSearch(ev) {
     ev.preventDefault();
-    dispatch({
-      type: actionTypes.SET_SEARCH_QUERY,
-      payload: searchItem,
-    });
-    history.push(`/search?q=${slugify(searchItem)}`);
+    if (searchItem) {
+      dispatch({
+        type: actionTypes.SET_SEARCH_QUERY,
+        payload: searchItem,
+      });
+      history.push(`/search?q=${slugify(searchItem)}`);
+    }
   }
   return (
     <form className="home__search">
