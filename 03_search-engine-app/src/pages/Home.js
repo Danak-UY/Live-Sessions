@@ -2,12 +2,14 @@ import React from "react";
 import "../assets/styles/Home.css";
 import { Button } from "antd";
 
-import Header from "../components/Header";
+import HeaderHome from "../components/HeaderHome";
+import SearchHome from "../components/SearchHome";
 
 function Home() {
   return (
-    <div>
-      <Header />
+    <div className="home__header">
+      <HeaderHome />
+      <SearchHome />
     </div>
   );
 }

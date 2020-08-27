@@ -1,0 +1,5 @@
+.home__header {
+  background-color: var(--cl-primary);
+  display: flex;
+  flex-direction: column;
+}

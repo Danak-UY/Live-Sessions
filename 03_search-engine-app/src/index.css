@@ -5,7 +5,7 @@
   --cl-primary-dark: #2b61a8;
   --cl-secondary: #affdff;
   --cl-white: #ffffff;
-  --cl-light: #ececec;
+  --cl-light: #f1f1f1;
   --cl-gray: #83898b;
   --cl-dark: #4f5558;
 }
@@ -22,4 +22,5 @@ body {
   font-family: "Open Sans", sans-serif;
   min-height: 100vh;
   background-color: var(--cl-light);
+  color: var(--cl-dark);
 }

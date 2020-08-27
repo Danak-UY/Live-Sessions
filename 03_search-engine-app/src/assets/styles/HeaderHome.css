@@ -1,8 +1,3 @@
-.home__header {
-  background-color: var(--cl-primary);
-  height: 75vh;
-}
-
 header {
   padding: 1.5rem;
   display: flex;
@@ -10,14 +5,22 @@ header {
   align-items: center;
 }
 
-button.ant-btn-link {
+button.ant-btn-text,
+button.ant-btn-text:focus {
   color: var(--cl-primary-dark);
   font-weight: 600;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+
+button.ant-btn-text:hover {
+  color: var(--cl-white);
+  background-color: var(--cl-primary-dark);
+  opacity: 0.4;
 }
 
 button.ant-btn-link:hover {
-  color: var(--cl-white);
-  opacity: 0.4;
+  opacity: 0.8;
 }
 
 .header__card {
