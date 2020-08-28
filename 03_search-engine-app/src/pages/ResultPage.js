@@ -25,13 +25,13 @@ function ResultPage() {
   const [searchPage, setSearchPage] = useState(0);
   const [loading, setLoading] = useState(true);
   // LIVE API DATA
-  // const { data } = useGoogleSearch(query, searchPage);
-  const data = Response;
+  const { data } = useGoogleSearch(query, searchPage);
+  // const data = Response;
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
+    setLoading(false);
     if (data.items) {
-      setLoading(false);
       setDataList([...dataList, ...data.items]);
     }
   }, [data]);

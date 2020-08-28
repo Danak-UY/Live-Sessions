@@ -56,6 +56,8 @@ article .card__thumbnail {
 
 .data-error {
   margin: 4rem auto;
+  width: 60ch;
+  max-width: 100%;
 }
 
 article .ant-skeleton {

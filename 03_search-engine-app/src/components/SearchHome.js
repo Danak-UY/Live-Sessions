@@ -25,14 +25,14 @@ function SearchHome() {
   }
   function handleLucky() {
     if (avatarProfiles[0].username) {
+      const searchItemLucky = avatarProfiles[
+        avatarProfiles.length - 1
+      ].username.replaceAll(/\d/g, "");
       dispatch({
         type: actionTypes.SET_SEARCH_QUERY,
-        payload: avatarProfiles[avatarProfiles.length - 1].username.replaceAll(
-          /\d/g,
-          ""
-        ),
+        payload: searchItemLucky,
       });
-      history.push(`/search?q=${slugify(searchItem)}`);
+      history.push(`/search?q=${slugify(searchItemLucky)}`);
     }
   }
   return (
