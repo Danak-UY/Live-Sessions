@@ -9,7 +9,7 @@ import reducer from "./reducer";
 const initialState = {
   query: window.location.search
     ? decodeURIComponent(
-        window.location.search.match(/(\?|&)q\=([^&]*)/)[2]
+        window.location.search.match(/(\?|&)q=([^&]*)/)[2]
       ).replaceAll("-", " ")
     : "",
   avatarProfiles: [],

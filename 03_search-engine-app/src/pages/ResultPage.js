@@ -29,9 +29,6 @@ function ResultPage() {
   const data = Response;
   const [dataList, setDataList] = useState([]);
 
-  console.log("page results", data);
-  console.log("page items", dataList);
-
   useEffect(() => {
     if (data.items) {
       setLoading(false);
@@ -42,7 +39,6 @@ function ResultPage() {
   function handleSearch(ev) {
     ev.preventDefault();
     if (searchItem) {
-      console.log("handle change", searchItem);
       setSearchPage(0);
       dispatch({
         type: actionTypes.SET_SEARCH_QUERY,

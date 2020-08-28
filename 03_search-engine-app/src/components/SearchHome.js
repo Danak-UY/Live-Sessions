@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import slugify from "slugify";
 import { Button } from "antd";
 import { SearchOutlined, FireOutlined } from "@ant-design/icons";
@@ -10,7 +10,7 @@ import { useStateValue } from "./StateProvider";
 import InputField from "./InputField";
 
 function SearchHome() {
-  const [state, dispatch] = useStateValue();
+  const [{ avatarProfiles }, dispatch] = useStateValue();
   const history = useHistory();
   const [searchItem, setSearchItem] = useState("");
   function handleSearch(ev) {
@@ -19,6 +19,18 @@ function SearchHome() {
       dispatch({
         type: actionTypes.SET_SEARCH_QUERY,
         payload: searchItem,
+      });
+      history.push(`/search?q=${slugify(searchItem)}`);
+    }
+  }
+  function handleLucky() {
+    if (avatarProfiles[0].username) {
+      dispatch({
+        type: actionTypes.SET_SEARCH_QUERY,
+        payload: avatarProfiles[avatarProfiles.length - 1].username.replaceAll(
+          /\d/g,
+          ""
+        ),
       });
       history.push(`/search?q=${slugify(searchItem)}`);
     }
@@ -50,6 +62,7 @@ function SearchHome() {
           icon={<FireOutlined />}
           size="large"
           className="btn__secondary"
+          onClick={handleLucky}
         >
           Feeling Lucky
         </Button>

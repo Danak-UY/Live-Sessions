@@ -11,7 +11,7 @@ function ResultCard({ title, link, displayLink, htmlSnippet, pagemap }) {
             <img
               className="card__thumbnail"
               src={pagemap.cse_thumbnail[0].src}
-              alt="Image"
+              alt="Link thumbnail"
             />
           )}
         <a href={link}>{displayLink}</a>
