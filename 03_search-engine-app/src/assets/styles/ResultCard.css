@@ -60,35 +60,40 @@ article .card__thumbnail {
   max-width: 100%;
 }
 
-article .ant-skeleton {
+.skeleton__card {
+  width: 70ch;
+  max-width: 100%;
+}
+
+.skeleton__card .ant-skeleton {
   margin-right: 0.5rem;
   height: 1rem;
 }
 
-article .skeleton-header {
+.skeleton__card .skeleton__header {
   display: flex;
 }
 
-article .ant-skeleton-avatar {
+.skeleton__card .ant-skeleton-avatar {
   transform: translateY(-5px);
 }
 
-article .ant-skeleton-input {
+.skeleton__card .ant-skeleton-input {
   height: 1rem !important;
   border-radius: 0.25rem;
 }
 
-article h3.ant-skeleton-title {
+.skeleton__card h3.ant-skeleton-title {
   margin-bottom: 0.5rem;
   width: 55% !important;
   border-radius: 0.25rem;
 }
 
-article ul.ant-skeleton-paragraph {
+.skeleton__card ul.ant-skeleton-paragraph {
   margin: 0 !important;
 }
 
-article ul.ant-skeleton-paragraph li {
+.skeleton__card ul.ant-skeleton-paragraph li {
   width: 80% !important;
   border-radius: 0.25rem;
 }

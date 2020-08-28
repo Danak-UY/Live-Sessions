@@ -30,8 +30,8 @@ function ResultPage() {
   const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
-    setLoading(false);
     if (data.items) {
+      setLoading(false);
       setDataList([...dataList, ...data.items]);
     }
   }, [data]);
@@ -39,7 +39,9 @@ function ResultPage() {
   function handleSearch(ev) {
     ev.preventDefault();
     if (searchItem) {
+      setLoading(true);
       setSearchPage(0);
+      setDataList([]);
       dispatch({
         type: actionTypes.SET_SEARCH_QUERY,
         payload: searchItem,
@@ -86,14 +88,15 @@ function ResultPage() {
         <Divider />
       </div>
       <div className="result__cards">
-        {!data.error && data.length !== 0 ? (
+        {data.length !== 0 && (
           <>
             <ResultStats {...data.searchInformation} />
             {dataList.map((item, index) => (
               <ResultCard key={index} {...item} />
             ))}
           </>
-        ) : (
+        )}
+        {data.error && (
           <div className="center-content data-error">
             <Empty description={<span>No results found</span>} />
           </div>
