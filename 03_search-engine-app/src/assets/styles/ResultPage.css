@@ -17,6 +17,7 @@
   padding: 0rem 2rem;
   margin-left: 12rem;
   width: max-content;
+  max-width: 100%;
 }
 
 .result__tabs .ant-tabs {

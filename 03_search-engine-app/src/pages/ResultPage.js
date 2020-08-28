@@ -4,15 +4,17 @@ import slugify from "slugify";
 import { useStateValue } from "./../components/StateProvider";
 import useGoogleSearch from "./../useGoogleSearch";
 import { actionTypes } from "./../reducer";
-import { Button, Divider, BackTop } from "antd";
+import { Button, Divider, BackTop, Empty } from "antd";
 import { SearchOutlined, ArrowUpOutlined } from "@ant-design/icons";
 
-import AvatarProfile from "./../components/AvatarProfile";
 import Response from "./../response";
+
+import AvatarProfile from "./../components/AvatarProfile";
 import InputField from "./../components/InputField";
 import ResultTabs from "./../components/ResultTabs";
 import ResultCard from "./../components/ResultCard";
 import ResultStats from "./../components/ResultStats";
+import SkeletonCard from "./../components/SkeletonCard";
 
 import "./../assets/styles/ResultPage.css";
 
@@ -21,6 +23,7 @@ function ResultPage() {
   const history = useHistory();
   const [searchItem, setSearchItem] = useState(query);
   const [searchPage, setSearchPage] = useState(0);
+  const [loading, setLoading] = useState(true);
   // LIVE API DATA
   // const { data } = useGoogleSearch(query, searchPage);
   const data = Response;
@@ -30,7 +33,10 @@ function ResultPage() {
   console.log("page items", dataList);
 
   useEffect(() => {
-    if (data.items) setDataList([...dataList, ...data.items]);
+    if (data.items) {
+      setLoading(false);
+      setDataList([...dataList, ...data.items]);
+    }
   }, [data]);
 
   function handleSearch(ev) {
@@ -48,6 +54,7 @@ function ResultPage() {
 
   function addResults() {
     setSearchPage(searchPage + 1);
+    setLoading(true);
   }
   return (
     <div>
@@ -91,13 +98,17 @@ function ResultPage() {
             ))}
           </>
         ) : (
-          <p>Error</p>
+          <div className="center-content data-error">
+            <Empty description={<span>No results found</span>} />
+          </div>
         )}
+        {loading &&
+          [1, 2, 3, 4, 5].map((item, index) => <SkeletonCard key={index} />)}
         {!data.error &&
           data.length !== 0 &&
           data.queries?.nextPage &&
           data.queries?.nextPage[0] && (
-            <div className="button__load-more">
+            <div className="center-content">
               <Button
                 onClick={addResults}
                 type="ghost"

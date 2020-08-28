@@ -49,6 +49,44 @@ article .card__thumbnail {
   color: var(--cl-dark);
   margin-top: 1rem;
 }
-.button__load-more {
+
+.center-content {
   text-align: center;
+}
+
+.data-error {
+  margin: 4rem auto;
+}
+
+article .ant-skeleton {
+  margin-right: 0.5rem;
+  height: 1rem;
+}
+
+article .skeleton-header {
+  display: flex;
+}
+
+article .ant-skeleton-avatar {
+  transform: translateY(-5px);
+}
+
+article .ant-skeleton-input {
+  height: 1rem !important;
+  border-radius: 0.25rem;
+}
+
+article h3.ant-skeleton-title {
+  margin-bottom: 0.5rem;
+  width: 55% !important;
+  border-radius: 0.25rem;
+}
+
+article ul.ant-skeleton-paragraph {
+  margin: 0 !important;
+}
+
+article ul.ant-skeleton-paragraph li {
+  width: 80% !important;
+  border-radius: 0.25rem;
 }
