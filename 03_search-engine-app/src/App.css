@@ -11,3 +11,16 @@
   min-height: 100%;
   width: 100%;
 }
+
+.mic-active {
+  animation: micActive 0.8s ease alternate infinite;
+}
+
+@keyframes micActive {
+  from {
+    color: var(--cl-dark);
+  }
+  to {
+    color: var(--cl-primary);
+  }
+}

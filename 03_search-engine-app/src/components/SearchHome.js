@@ -25,12 +25,10 @@ function SearchHome() {
   }
   return (
     <form className="home__search">
-      <Link to="/" className="link-logo">
-        <img
-          src={`${require(`./../assets/images/search-logo-white.svg`)}`}
-          alt="Search logo"
-        />
-      </Link>
+      <img
+        src={`${require(`./../assets/images/search-logo-white.svg`)}`}
+        alt="Search logo"
+      />
       <InputField
         handleChange={(value) => setSearchItem(value)}
         searchItem={searchItem}
